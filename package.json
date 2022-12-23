@@ -43,7 +43,12 @@
   },
   "lint-staged": {
     "**/*": [
-      "yarn format",
+      "yarn format"
+    ],
+    "apps/*": [
+      "yarn lint"
+    ],
+    "packages/ui": [
       "yarn lint"
     ]
   }
