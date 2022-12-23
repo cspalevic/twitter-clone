@@ -1,10 +1,11 @@
-import { Button } from "ui";
+import { Button, Icon } from "ui";
 
 export default function Web() {
   return (
     <div>
       <h1>Web</h1>
-      <Button />
+      <Button text="Hey!" onClick={() => alert("sup!")} />
+      <Icon iconName="home" />
     </div>
   );
 }

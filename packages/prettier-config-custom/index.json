@@ -1,0 +1,11 @@
+{
+	"importOrder": [
+		"@<THIRD_PARTY_MODULES>",
+		"<THIRD_PARTY_MODULES>",
+		"~/(.*)$",
+		"^[./]"
+	],
+	"importOrderMergeDuplicateImports": true,
+	"importOrderTypeImportsToTop": true,
+	"importOrderSortIndividualImports": true
+}

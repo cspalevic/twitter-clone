@@ -1,0 +1,13 @@
+.button {
+  border: none;
+  border-radius: 25px;
+  background: rgb(29 155 240);
+  color: rgb(255 255 255);
+  padding: 15px 60px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}

@@ -10,16 +10,41 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{cjs,js,jsx,ts,tsx,md}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "prettier": "prettier-config-custom",
+  "stylelint": {
+    "extends": "stylelint-config-custom"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "custom"
+    ],
+    "settings": {
+      "next": {
+        "rootDir": [
+          "apps/*/"
+        ]
+      }
+    }
+  },
+  "lint-staged": {
+    "**/*": [
+      "yarn format",
+      "yarn lint"
+    ]
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "name": "stylelint-config-custom",
+  "version": "0.0.0",
+  "description": "Custom stylelint configurations for all workspaces",
+  "main": "index.json",
+  "license": "MIT",
+  "dependencies": {
+    "stylelint": "^14.16.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-standard": "^29.0.0"
+  }
+}
