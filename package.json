@@ -8,12 +8,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "npx check-engine && turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{cjs,js,jsx,ts,tsx,md}\"",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "check-engine": "^1.10.1",
     "eslint-config-custom": "*",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
@@ -21,7 +22,8 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0 <17"
+    "node": ">=14.0.0 <17.0.0",
+    "yarn": ">=3.0.0"
   },
   "packageManager": "yarn@3.3.1",
   "prettier": "prettier-config-custom",
