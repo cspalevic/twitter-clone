@@ -1,0 +1,12 @@
+.layoutSpread {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.layoutContainer {
+  max-width: 768px;
+  display: flex;
+  flex-direction: row;
+}

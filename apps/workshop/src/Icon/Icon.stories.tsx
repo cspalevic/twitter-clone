@@ -17,7 +17,7 @@ export const IconWithExtraStyles = Template.bind({});
 IconWithExtraStyles.args = {
   iconName: "MoreOutlined",
   size: "lg",
-  classNames: [styles.extraClasses],
+  className: styles.extraClasses,
 };
 
 export default {

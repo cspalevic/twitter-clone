@@ -1,0 +1,60 @@
+@value theme: "theme";
+@value --blue, --white, --lightgreen from theme;
+
+.postAudience {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid --white;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+
+.postAudience:disabled {
+  cursor: default;
+}
+
+.postAudience span {
+  padding: 0;
+  margin: 0;
+  color: --blue;
+}
+
+.postAudience svg {
+  vertical-align: middle;
+  fill: --blue;
+}
+
+.postAudienceMenu {
+  min-width: 230px;
+}
+
+.postAudienceItem {
+  display: flex;
+  flex-direction: row;
+}
+
+.postAudienceItemInfoContainer {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  color: --white;
+}
+
+.worldAvatar {
+  background-color: --blue;
+}
+
+.twitterCircleAvatar {
+  background-color: --lightgreen;
+}
+
+.audienceIcon {
+  fill: --white;
+}
+
+.audienceSelectIcon {
+  fill: --blue;
+}

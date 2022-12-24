@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { Placement } from "./PopupMenu";
+import { Placement } from "./Popup";
 
 type Position = Pick<CSSProperties, "top" | "left">;
 

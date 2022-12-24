@@ -1,16 +1,16 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
 import { useRef, useState } from "react";
-import { Button, PopupMenu, PopupMenuProps } from "ui";
-import styles from "./PopupMenu.module.css";
+import { Button, Popup, PopupProps } from "ui";
+import styles from "./Popup.module.css";
 
-type PopupMenuType = typeof PopupMenu;
-type PopupMenuMeta = ComponentMeta<PopupMenuType>;
+type PopupType = typeof Popup;
+type PopupMeta = ComponentMeta<PopupType>;
 
-export const SamplePopupMenu = ({
+export const SamplePopup = ({
   placement = "left",
   inverse = false,
   showArrow = false,
-}: Pick<PopupMenuProps, "showArrow" | "inverse" | "placement">) => {
+}: Pick<PopupProps, "showArrow" | "inverse" | "placement">) => {
   const container = useRef<HTMLDivElement>(null);
   const anchorEl = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,16 +18,18 @@ export const SamplePopupMenu = ({
   return (
     <div ref={container} className={styles.container}>
       {isOpen && (
-        <PopupMenu
+        <Popup
+          onClose={() => setIsOpen(false)}
           showArrow={showArrow}
           inverse={inverse}
           placement={placement}
           anchorEl={anchorEl}
         >
           <h1>Hi!</h1>
-        </PopupMenu>
+        </Popup>
       )}
       <Button
+        disabled={isOpen}
         ref={anchorEl}
         text="Click me"
         onClick={() => setIsOpen(!isOpen)}
@@ -37,8 +39,8 @@ export const SamplePopupMenu = ({
 };
 
 export default {
-  title: "Popup Menu",
-  component: PopupMenu,
+  title: "Popup",
+  component: Popup,
   argTypes: {
     placement: {
       control: "select",
@@ -60,4 +62,4 @@ export default {
       control: "boolean",
     },
   },
-} as PopupMenuMeta;
+} as PopupMeta;

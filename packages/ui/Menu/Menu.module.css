@@ -1,0 +1,30 @@
+@value theme: "theme";
+@value --lightgray from theme;
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuTitle {
+  margin: 0;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItem {
+  border-radius: 25px;
+  background: transparent;
+  padding: 10px 8px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: --lightgray;
+}

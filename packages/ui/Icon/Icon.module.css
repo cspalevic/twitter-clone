@@ -1,14 +1,19 @@
+.iconContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .sm svg {
-    width: 1rem;
-    height: auto;
+  width: 1.5rem;
+  height: auto;
 }
 
 .md svg {
-    width: 2rem;
-    height: auto;
+  width: 1.75rem;
+  height: auto;
 }
 
 .lg svg {
-    width: 4rem;
-    height: auto;
+  width: 2.5rem;
+  height: auto;
 }

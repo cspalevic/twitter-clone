@@ -15393,6 +15393,15 @@ prettier@latest:
   languageName: node
   linkType: hard
 
+"theme@*, theme@workspace:^, theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "theme@workspace:packages/theme"
+  dependencies:
+    stylelint: ^14.16.0
+    stylelint-config-custom: "*"
+  languageName: unknown
+  linkType: soft
+
 "through2@npm:^2.0.0":
   version: 2.0.5
   resolution: "through2@npm:2.0.5"
@@ -15824,7 +15833,9 @@ turbo@latest:
     eslint: ^7.32.0
     eslint-config-custom: "*"
     react: ^18.2.0
+    stylelint: ^14.16.0
     stylelint-config-custom: "*"
+    theme: "*"
     tsconfig: "*"
     typescript: ^4.5.2
   languageName: unknown
@@ -16378,6 +16389,7 @@ turbo@latest:
     next: ^13.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    theme: "workspace:^"
     tsconfig: "*"
     typescript: ^4.5.3
     ui: "*"

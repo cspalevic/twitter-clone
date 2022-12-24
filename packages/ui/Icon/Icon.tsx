@@ -7,13 +7,13 @@ export type IconName = keyof typeof svgs;
 
 export type IconProps = {
   iconName: IconName;
-  classNames?: string[];
+  className?: string;
   size?: "sm" | "md" | "lg";
 };
 
 export const Icon = forwardRef(
   (
-    { iconName, classNames = [], size = "md" }: IconProps,
+    { iconName, className, size = "md" }: IconProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const exists = iconName in svgs;
@@ -22,7 +22,10 @@ export const Icon = forwardRef(
     }
     const Component = exists ? svgs[iconName] : svgs.Blank;
     return (
-      <div ref={ref} className={cx(styles[size], ...classNames)}>
+      <div
+        ref={ref}
+        className={cx(styles.iconContainer, styles[size], className)}
+      >
         <Component />
       </div>
     );

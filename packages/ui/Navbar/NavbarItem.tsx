@@ -4,8 +4,9 @@ import { Icon, IconName } from "../Icon/Icon";
 import styles from "./NavbarItem.module.css";
 
 export type NavbarItemValue = {
-  iconName?: IconName;
   text: string;
+  active?: boolean;
+  iconName?: IconName;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   items?: NavbarItemValue[];
 };
@@ -27,11 +28,9 @@ export const ExpandableNavbarItem = ({
       >
         <span>{text}</span>
         <Icon
-          classNames={[
-            cx(styles.nestedNavbarItemCaret, {
-              [styles.nestedNavbarItemCaretExpanded]: isExpanded,
-            }),
-          ]}
+          className={cx(styles.navbarItemIcon, styles.nestedNavbarItemCaret, {
+            [styles.nestedNavbarItemCaretExpanded]: isExpanded,
+          })}
           size="sm"
           iconName="Caret"
         />
@@ -51,8 +50,15 @@ export const NavbarItem = ({ item }: NavbarItemProps) => {
   if (item.items?.length) return <ExpandableNavbarItem item={item} />;
   const { iconName, text, onClick } = item;
   return (
-    <a className={styles.navbarItem} onClick={onClick}>
-      {iconName && <Icon iconName={iconName} />}
+    <a
+      className={cx(styles.navbarItem, {
+        [styles.navbarItemActive]: item.active,
+      })}
+      onClick={onClick}
+    >
+      {iconName && (
+        <Icon className={styles.navbarItemIcon} iconName={iconName} />
+      )}
       <span className={styles.navbarItemText}>{text}</span>
     </a>
   );

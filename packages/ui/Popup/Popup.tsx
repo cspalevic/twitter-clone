@@ -1,10 +1,10 @@
 import cx from "classnames";
-import { RefObject, useMemo } from "react";
+import { RefObject, useMemo, useRef } from "react";
 import {
   useBoundingclientrect as useBoundingClientRect,
-  useBoundingclientrectRef as useBoundingClientRectRef,
+  useOutsideClick,
 } from "rooks";
-import styles from "./PopupMenu.module.css";
+import styles from "./Popup.module.css";
 import { getPosition } from "./utils";
 
 const ARROW_HEIGHT = 7;
@@ -35,23 +35,27 @@ const placementStylesMap: Record<PlacementArrowSupport, string> = {
   left: styles.arrowLeft,
 };
 
-export type PopupMenuProps = {
+export type PopupProps = {
   anchorEl: RefObject<HTMLElement>;
+  onClose: () => void;
   placement?: Placement;
   inverse?: boolean;
   showArrow?: boolean;
   children?: JSX.Element;
 };
 
-export const PopupMenu = ({
+export const Popup = ({
   anchorEl,
+  onClose,
   placement = "top",
   inverse = false,
   showArrow = false,
   children,
-}: PopupMenuProps) => {
-  const [popupMenuRef, popupMenuRect] = useBoundingClientRectRef();
+}: PopupProps) => {
+  const popupMenuRef = useRef<HTMLDivElement>(null);
+  const popupMenuRect = useBoundingClientRect(popupMenuRef);
   const anchorRect = useBoundingClientRect(anchorEl);
+  useOutsideClick(popupMenuRef, onClose);
 
   const position = useMemo(() => {
     return getPosition(placement, popupMenuRect, anchorRect, {
@@ -81,8 +85,8 @@ export const PopupMenu = ({
           />
         )}
       <div
-        className={cx(styles.popupMenu, {
-          [styles.popupMenuVisible]: !!position,
+        className={cx(styles.popup, {
+          [styles.popupVisible]: !!position,
         })}
       >
         {children}
