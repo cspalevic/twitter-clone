@@ -1,0 +1,31 @@
+.navbarItem {
+    width: 100%;
+    height: 40px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+
+.navbarItem:hover {
+    background-color: #ccc;
+}
+
+.navbarItemText {
+    padding-left: 15px;
+}
+
+.nestedNavbarItem {
+    justify-content: space-between;
+}
+
+.nestedNavbarItemCaret {
+    transition: 0.1s;
+    transform: rotate(0deg);
+}
+
+.nestedNavbarItemCaretExpanded {
+    fill: rgb(29, 155, 240);
+    transform: rotate(180deg);
+}

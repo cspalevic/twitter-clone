@@ -5,7 +5,7 @@
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint \"**/*.ts*\" && stylelint \"**/*.css\""
+    "lint": "eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
@@ -16,5 +16,8 @@
     "stylelint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2"
   }
 }

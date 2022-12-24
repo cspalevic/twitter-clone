@@ -1,0 +1,14 @@
+.sm svg {
+    width: 1rem;
+    height: auto;
+}
+
+.md svg {
+    width: 2rem;
+    height: auto;
+}
+
+.lg svg {
+    width: 4rem;
+    height: auto;
+}

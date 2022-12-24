@@ -19,6 +19,7 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "prettier": "latest",
+    "tsx": "^3.12.1",
     "turbo": "latest"
   },
   "engines": {
@@ -52,5 +53,8 @@
       "yarn format",
       "yarn lint"
     ]
+  },
+  "dependencies": {
+    "rooks": "^7.4.2"
   }
 }
