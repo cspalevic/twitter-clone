@@ -1,49 +1,12 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { Avatar, Button, Icon, IconButton, Navbar } from "ui";
-import { NavbarItemValue } from "ui/Navbar/NavbarItem";
 import styles from "./Header.module.css";
-
-export const navbarItems: NavbarItemValue[] = [
-  {
-    iconName: "Home",
-    text: "Home",
-    onClick: () => alert("You clicked Home!"),
-  },
-  {
-    iconName: "Hashtag",
-    text: "Explore",
-    onClick: () => alert("You clicked Explore!"),
-  },
-  {
-    iconName: "Notifications",
-    text: "Notifications",
-    onClick: () => alert("You clicked Notifications!"),
-  },
-  {
-    iconName: "Email",
-    text: "Messages",
-    onClick: () => alert("You clicked Messages!"),
-  },
-  {
-    iconName: "Bookmark",
-    text: "Bookmarks",
-    onClick: () => alert("You clicked Bookmarks!"),
-  },
-  {
-    iconName: "TwitterBlue",
-    text: "Twitter Blue",
-    onClick: () => alert("You clicked Twitter Blue!"),
-  },
-  {
-    iconName: "Profile",
-    text: "Profile",
-    onClick: () => alert("You clicked Profile!"),
-  },
-];
+import { NAVBAR_ITEM_LIMIT, convertRoutesToItems } from "./navigation";
 
 export const Header = () => {
-  const { pathname } = useRouter();
-  console.log(pathname);
+  const { pathname, push } = useRouter();
+
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerActionBarContainer}>
@@ -55,13 +18,23 @@ export const Header = () => {
           }}
         />
         <header>
-          <Navbar items={navbarItems} />
+          <Navbar
+            items={convertRoutesToItems(pathname, push)}
+            limit={NAVBAR_ITEM_LIMIT}
+          />
         </header>
         <Button text="Tweet" onClick={() => alert("You clicked tweet")} />
       </div>
-      <Avatar>
-        <Icon className={styles.logo} iconName="Profile" />
-      </Avatar>
+      <button className={styles.profileContainer}>
+        <Avatar>
+          <Image src="/image.png" width={25} height={25} />
+        </Avatar>
+        <div className={styles.profileLabels}>
+          <p>Charlie Spalevic</p>
+          <span>@cspalevic</span>
+        </div>
+        <Icon className={styles.profileIcon} iconName="More" />
+      </button>
     </div>
   );
 };

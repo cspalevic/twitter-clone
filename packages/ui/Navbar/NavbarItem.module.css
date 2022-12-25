@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --white, --blue, --lightgray from theme;
+@value --white, --blue, --gray from theme;
 
 .navbarItem {
   cursor: pointer;
@@ -13,7 +13,7 @@
 }
 
 .navbarItem:hover {
-  background-color: --lightgray;
+  background-color: --gray;
 }
 
 .navbarItemActive {

@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { MouseEventHandler, useState } from "react";
+import { ForwardedRef, MouseEventHandler, forwardRef, useState } from "react";
 import { Icon, IconName } from "../Icon/Icon";
 import styles from "./NavbarItem.module.css";
 
@@ -46,20 +46,25 @@ export const ExpandableNavbarItem = ({
   );
 };
 
-export const NavbarItem = ({ item }: NavbarItemProps) => {
-  if (item.items?.length) return <ExpandableNavbarItem item={item} />;
-  const { iconName, text, onClick } = item;
-  return (
-    <a
-      className={cx(styles.navbarItem, {
-        [styles.navbarItemActive]: item.active,
-      })}
-      onClick={onClick}
-    >
-      {iconName && (
-        <Icon className={styles.navbarItemIcon} iconName={iconName} />
-      )}
-      <span className={styles.navbarItemText}>{text}</span>
-    </a>
-  );
-};
+export const NavbarItem = forwardRef(
+  ({ item }: NavbarItemProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    if (item.items?.length) return <ExpandableNavbarItem item={item} />;
+    const { iconName, text, onClick } = item;
+    return (
+      <a
+        className={cx(styles.navbarItem, {
+          [styles.navbarItemActive]: item.active,
+        })}
+        onClick={onClick}
+        ref={ref}
+      >
+        {iconName && (
+          <Icon className={styles.navbarItemIcon} iconName={iconName} />
+        )}
+        <span className={styles.navbarItemText}>{text}</span>
+      </a>
+    );
+  }
+);
+
+NavbarItem.displayName = "NavbarItem";

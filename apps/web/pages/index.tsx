@@ -1,9 +1,12 @@
-import { Button, Icon } from "ui";
+import { Button, Icon, PostInput } from "ui";
 
 const Web = () => {
   return (
     <div>
-      <Button text="Home" onClick={() => alert("Home!")} />
+      <div>
+        <h3>Home</h3>
+      </div>
+      <PostInput />
     </div>
   );
 };

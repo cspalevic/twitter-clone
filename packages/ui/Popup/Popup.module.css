@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --white, --black from theme;
+@value --white, --black, --lightgray from theme;
 
 .container {
   position: absolute;
@@ -62,7 +62,7 @@
   background-color: --black;
   color: --white;
   border-radius: 5px;
-  box-shadow: 0 3px 3px;
+  box-shadow: rgb(255, 255, 255, 0.5) 0 0 10px;
   opacity: 0;
   transition: opacity 0.3s;
 }

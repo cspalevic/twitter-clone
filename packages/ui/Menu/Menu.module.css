@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --lightgray from theme;
+@value --gray from theme;
 
 .menu {
   display: flex;
@@ -26,5 +26,5 @@
 }
 
 .menuItem:hover {
-  background-color: --lightgray;
+  background-color: --gray;
 }

@@ -11,7 +11,6 @@ export const Layout = ({ children }: LayoutProps) => (
     <div className={styles.layoutContainer}>
       <Header />
       <main>{children}</main>
-      <section>Explore</section>
     </div>
   </div>
 );

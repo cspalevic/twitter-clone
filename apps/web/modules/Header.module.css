@@ -1,5 +1,9 @@
 @value theme: "theme";
-@value --white from theme;
+@value --white, --lightgray, --darkgray from theme;
+
+.logo {
+  fill: --white;
+}
 
 .headerContainer {
   display: flex;
@@ -7,7 +11,7 @@
   justify-content: space-between;
   align-items: baseline;
   padding: 0 40px;
-  border-right: 0.5px solid --white;
+  border-right: 1px solid --lightgray;
 }
 
 .headerActionBarContainer {
@@ -16,6 +20,32 @@
   align-items: baseline;
 }
 
-.logo {
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  color: --white;
+}
+
+.profileLabels {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.profileLabels p {
+  font-weight: bold;
+  padding-bottom: 3px;
+  margin: 0;
+}
+
+.profileLabels span {
+  color: --darkgray;
+  font-size: 0.85rem;
+}
+
+.profileIcon svg {
   fill: --white;
 }
