@@ -1,6 +1,7 @@
 import cx from "classnames";
 import { ForwardedRef, MouseEventHandler, forwardRef, useState } from "react";
 import { Icon, IconName } from "../Icon/Icon";
+import { Text } from "../Text/Text";
 import styles from "./NavbarItem.module.css";
 
 export type NavbarItemValue = {
@@ -26,7 +27,7 @@ export const ExpandableNavbarItem = ({
         onClick={() => setIsExpanded(!isExpanded)}
         className={cx(styles.nestedNavbarItem, styles.navbarItem)}
       >
-        <span>{text}</span>
+        <Text text={text} />
         <Icon
           className={cx(styles.navbarItemIcon, styles.nestedNavbarItemCaret, {
             [styles.nestedNavbarItemCaretExpanded]: isExpanded,
@@ -61,7 +62,9 @@ export const NavbarItem = forwardRef(
         {iconName && (
           <Icon className={styles.navbarItemIcon} iconName={iconName} />
         )}
-        <span className={styles.navbarItemText}>{text}</span>
+        <div className={styles.navbarItemText}>
+          <Text text={text} />
+        </div>
       </a>
     );
   }

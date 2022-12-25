@@ -1,5 +1,6 @@
 import { ForwardedRef, MouseEventHandler, forwardRef } from "react";
-import { Icon, IconName, IconProps } from "../Icon/Icon";
+import { Icon, IconProps } from "../Icon/Icon";
+import { Text } from "../Text/Text";
 import styles from "./Button.module.css";
 
 export type ButtonProps = {
@@ -33,7 +34,7 @@ export const Button = forwardRef(
       disabled={disabled}
       onClick={onClick}
     >
-      {text}
+      <Text text={text} />
     </button>
   )
 );

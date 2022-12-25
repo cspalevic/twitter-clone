@@ -1,7 +1,7 @@
 import { readdir, writeFile } from "fs/promises";
 
 const run = async () => {
-  const files = await readdir("../Icon/svgs");
+  const files = await readdir("../src/Icon/svgs");
   const output = files
     .filter((file) => file !== "index.ts")
     .map((file) => {
@@ -9,7 +9,7 @@ const run = async () => {
       return `export * from "./${name}";`;
     })
     .join("\n");
-  writeFile("../Icon/svgs/index.ts", output);
+  writeFile("../src/Icon/svgs/index.ts", output);
 };
 
 run();

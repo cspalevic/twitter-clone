@@ -1,0 +1,25 @@
+@value theme: "theme";
+@value --white from theme;
+
+.text {
+  padding: 0;
+  margin: 0;
+}
+
+.textSize-sm {
+}
+
+.textSize-md {
+  font-size: 1.25rem;
+}
+
+.textSize-lg {
+}
+
+.textColor-primary {
+  color: --white;
+}
+
+.textBold {
+  font-weight: 700;
+}

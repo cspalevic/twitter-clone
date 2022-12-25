@@ -1,0 +1,9 @@
+@value theme: "theme";
+@value --black from theme;
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}

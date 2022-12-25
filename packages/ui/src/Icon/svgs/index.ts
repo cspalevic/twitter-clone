@@ -31,6 +31,7 @@ export * from "./Retweet";
 export * from "./Schedule";
 export * from "./Search";
 export * from "./Share";
+export * from "./TopTweet";
 export * from "./TopicOutlined";
 export * from "./Tweet";
 export * from "./TwitterBlue";

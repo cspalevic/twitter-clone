@@ -1,0 +1,17 @@
+@value theme: "theme";
+@value --white, --black from theme;
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header p {
+  color: --white;
+}
+
+.header svg {
+  fill: --white;
+}

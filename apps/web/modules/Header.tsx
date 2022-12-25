@@ -8,7 +8,7 @@ export const Header = () => {
   const { pathname, push } = useRouter();
 
   return (
-    <div className={styles.headerContainer}>
+    <header className={styles.headerContainer}>
       <div className={styles.headerActionBarContainer}>
         <IconButton
           onClick={() => alert("logo clicked")}
@@ -17,12 +17,10 @@ export const Header = () => {
             className: styles.logo,
           }}
         />
-        <header>
-          <Navbar
-            items={convertRoutesToItems(pathname, push)}
-            limit={NAVBAR_ITEM_LIMIT}
-          />
-        </header>
+        <Navbar
+          items={convertRoutesToItems(pathname, push)}
+          limit={NAVBAR_ITEM_LIMIT}
+        />
         <Button text="Tweet" onClick={() => alert("You clicked tweet")} />
       </div>
       <button className={styles.profileContainer}>
@@ -35,6 +33,6 @@ export const Header = () => {
         </div>
         <Icon className={styles.profileIcon} iconName="More" />
       </button>
-    </div>
+    </header>
   );
 };

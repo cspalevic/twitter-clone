@@ -36,13 +36,13 @@ export const navbarRoutes: NavbarRoute[] = [
     text: "Messages",
   },
   {
-    path: "/bookmarks",
+    path: "/i/bookmarks",
     icon: "BookmarkOutlined",
     activeIcon: "Bookmark",
     text: "Bookmarks",
   },
   {
-    path: "/twitter_blue_sign_up",
+    path: "/i/twitter_blue_sign_up",
     icon: "TwitterBlueOutlined",
     activeIcon: "TwitterBlue",
     text: "Twtter Blue",

@@ -5,3 +5,5 @@ export * from "./Menu/Menu";
 export * from "./Navbar/Navbar";
 export * from "./Popup/Popup";
 export * from "./PostInput/PostInput";
+export * from "./StickyHeader/StickyHeader";
+export * from "./Text/Text";
