@@ -4,7 +4,7 @@ export * from "./Icon/Icon";
 export * from "./Menu/Menu";
 export * from "./Navbar/Navbar";
 export * from "./Navbar/NavbarItem";
-export * from "./Popup/PopupBox";
+export * from "./Popup/Popup";
 export * from "./PostInput/PostInput";
 export * from "./StickyHeader/StickyHeader";
 export * from "./Text/Text";

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
-    "lint-disable": "tsc && eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
+    "lint": "tsc --noEmit && eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
   },
   "dependencies": {
     "react": "^18.2.0",

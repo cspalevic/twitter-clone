@@ -7,7 +7,7 @@ export type PostInputProps = {
   lines?: number;
 };
 
-export const PostInput = (props: PostInputProps) => {
+export const PostInput = () => {
   return (
     <PostInputProvider>
       <div className={styles.container}>

@@ -22,6 +22,7 @@ const getInverseCoordinate = (
     case "top":
       coordinate = {
         top: anchorRect.top + padding,
+        left: anchorRect.left + anchorRect.width / 2 - popupRect.width / 2,
       };
       break;
     case "topRight":
@@ -32,6 +33,7 @@ const getInverseCoordinate = (
       break;
     case "right":
       coordinate = {
+        top: anchorRect.top + anchorRect.height / 2 - popupRect.height / 2,
         left: anchorRect.right - popupRect.width - padding,
       };
       break;
@@ -44,6 +46,7 @@ const getInverseCoordinate = (
     case "bottom":
       coordinate = {
         top: anchorRect.bottom - popupRect.height - padding,
+        left: anchorRect.left + anchorRect.width / 2 - popupRect.width / 2,
       };
       break;
     case "bottomLeft":
@@ -54,6 +57,7 @@ const getInverseCoordinate = (
       break;
     case "left":
       coordinate = {
+        top: anchorRect.top + anchorRect.height / 2 - popupRect.height / 2,
         left: anchorRect.left + padding,
       };
       break;
@@ -77,6 +81,7 @@ const getRegularCoordinate = (
     case "top":
       coordinate = {
         top: anchorRect.top - popupRect.height - padding,
+        left: anchorRect.left + anchorRect.width / 2 - popupRect.width / 2,
       };
       break;
     case "topRight":
@@ -87,6 +92,7 @@ const getRegularCoordinate = (
       break;
     case "right":
       coordinate = {
+        top: anchorRect.top + anchorRect.height / 2 - popupRect.height / 2,
         left: anchorRect.right + padding,
       };
       break;
@@ -99,6 +105,7 @@ const getRegularCoordinate = (
     case "bottom":
       coordinate = {
         top: anchorRect.bottom + padding,
+        left: anchorRect.left + anchorRect.width / 2 - popupRect.width / 2,
       };
       break;
     case "bottomLeft":
@@ -109,6 +116,7 @@ const getRegularCoordinate = (
       break;
     case "left":
       coordinate = {
+        top: anchorRect.top + anchorRect.height / 2 - popupRect.height / 2,
         left: anchorRect.left - popupRect.width - padding,
       };
       break;
