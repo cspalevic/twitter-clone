@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Avatar, Button, Icon, IconButton, Navbar } from "ui";
 import styles from "./Header.module.css";
-import { NAVBAR_ITEM_LIMIT, convertRoutesToItems } from "./navigation";
+import { NAVBAR_ITEM_LIMIT, getNavbarItems } from "./navigation";
 
 export const Header = () => {
   const { pathname, push } = useRouter();
@@ -18,7 +18,7 @@ export const Header = () => {
           }}
         />
         <Navbar
-          items={convertRoutesToItems(pathname, push)}
+          items={getNavbarItems(pathname, push)}
           limit={NAVBAR_ITEM_LIMIT}
         />
         <Button text="Tweet" onClick={() => alert("You clicked tweet")} />

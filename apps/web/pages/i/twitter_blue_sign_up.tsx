@@ -1,4 +1,4 @@
-import { Button, Icon } from "ui";
+import { Button } from "ui";
 
 const Web = () => {
   return (

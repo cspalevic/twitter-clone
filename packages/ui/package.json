@@ -5,7 +5,7 @@
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
+    "lint": "tsc --noEmit && eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
   },
   "devDependencies": {
     "@types/react": "^17.0.37",

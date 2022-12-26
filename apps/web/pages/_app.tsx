@@ -10,8 +10,11 @@ const notoSans = Noto_Sans({
   style: ["normal"],
 });
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
+export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
+  P,
+  IP
+> & {
+  getLayout?: () => ReactNode;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -19,7 +22,8 @@ type AppPropsWithLayout = AppProps & {
 };
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
+  const getLayout =
+    Component.getLayout ?? ((page: ReactElement) => <Layout>{page}</Layout>);
 
   return (
     <>

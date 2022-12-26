@@ -39,5 +39,5 @@
 
 .nestedNavbarItemCaretExpanded {
   fill: --blue;
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }

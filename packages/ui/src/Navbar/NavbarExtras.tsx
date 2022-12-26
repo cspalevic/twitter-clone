@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Popup } from "../Popup/Popup";
 import { NavbarProps } from "./Navbar";
+import styles from "./NavbarExtras.module.css";
 import { NavbarItem } from "./NavbarItem";
 
 export const NavbarExtras = ({ items }: Pick<NavbarProps, "items">) => {
@@ -22,11 +23,16 @@ export const NavbarExtras = ({ items }: Pick<NavbarProps, "items">) => {
           placement="bottomLeft"
           anchorEl={moreItemRef}
           onClose={() => setIsPopupOpen(false)}
-          inverse={true}
+          className={styles.navbarExtrasPopup}
+          inverse
         >
-          <div>
+          <div className={styles.navbarExtrasItemsContainer}>
             {items.map((item, index) => (
-              <NavbarItem item={item} key={index} />
+              <NavbarItem
+                item={item}
+                key={index}
+                className={styles.navbarExtrasItem}
+              />
             ))}
           </div>
         </Popup>

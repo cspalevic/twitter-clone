@@ -1,13 +1,13 @@
-import { IconName } from "ui";
-import { NavbarItemValue } from "ui/Navbar/NavbarItem";
+import { IconName, NavbarItemValue } from "ui";
 
 export const NAVBAR_ITEM_LIMIT = 7;
 
 type NavbarRoute = {
-  path: string;
+  path?: string;
   icon?: IconName;
   activeIcon?: IconName;
   text: string;
+  subRoutes?: NavbarRoute[];
 };
 
 export const navbarRoutes: NavbarRoute[] = [
@@ -71,15 +71,76 @@ export const navbarRoutes: NavbarRoute[] = [
     activeIcon: "FriendOutlined",
     text: "Twitter Circle",
   },
+  {
+    text: "Creator Studio",
+    subRoutes: [
+      {
+        icon: "NewslettersOutlined",
+        text: "Newletters",
+      },
+      {
+        icon: "Analytics",
+        text: "Analytics",
+      },
+    ],
+  },
+  {
+    text: "Professional Tools",
+    subRoutes: [
+      {
+        icon: "RocketOutlined",
+        text: "Professional Home",
+      },
+      {
+        icon: "TwitterAdsOutlined",
+        text: "Twitter Ads",
+      },
+
+      {
+        icon: "MonetizationOutlined",
+        text: "Monetization",
+      },
+    ],
+  },
+  {
+    text: "Settings and Support",
+    subRoutes: [
+      {
+        icon: "SettingsOutlined",
+        text: "Settings and privacy",
+      },
+      {
+        icon: "HelpOutlined",
+        text: "Help Center",
+      },
+      {
+        icon: "DisplayOutlined",
+        text: "Display",
+      },
+      {
+        icon: "ShortcutOutlined",
+        text: "Keyboard shortcuts",
+      },
+    ],
+  },
 ];
 
-export const convertRoutesToItems = (
+const mapRouteToItem = (
+  { path, icon, activeIcon, text, subRoutes }: NavbarRoute,
+  currentPath: string,
+  push: Function
+): NavbarItemValue => ({
+  text,
+  active: currentPath === path,
+  iconName: currentPath === path ? activeIcon : icon,
+  onClick: () => (subRoutes?.length ? null : push(path)),
+  items:
+    subRoutes &&
+    subRoutes.map((route) => mapRouteToItem(route, currentPath, push)),
+});
+
+export const getNavbarItems = (
   currentPath: string,
   push: Function
 ): NavbarItemValue[] =>
-  navbarRoutes.map(({ path, icon, activeIcon, text }) => ({
-    text,
-    active: currentPath === path,
-    iconName: currentPath === path ? activeIcon : icon,
-    onClick: () => push(path),
-  }));
+  navbarRoutes.map((route) => mapRouteToItem(route, currentPath, push));
