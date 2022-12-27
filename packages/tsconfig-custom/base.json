@@ -2,19 +2,19 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "composite": false,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
     "isolatedModules": true,
     "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
+    "module": "ESNext",
+    "noEmit": true,
     "skipLibCheck": true,
-    "strict": true
-  },
-  "exclude": ["node_modules"]
+    "strict": true,
+    "types": ["node"]
+  }
 }

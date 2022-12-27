@@ -1,0 +1,7 @@
+{
+  "name": "types-custom",
+  "version": "0.0.0",
+  "description": "Custom reusable types to be reused for all workspaces",
+  "main": "",
+  "types": "index.ts"
+}

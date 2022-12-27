@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { Maybe } from "types-custom";
 import { Position, PositionOptions } from ".";
 
 type Coordinate = Maybe<Pick<CSSProperties, "top" | "left">>;
@@ -11,7 +12,7 @@ const getInverseCoordinate = (
   popupRect: DOMRect,
   { placement, padding = 0 }: CoordinateOptions
 ) => {
-  let coordinate: Coordinate = undefined;
+  let coordinate: Coordinate = null;
   switch (placement) {
     case "topLeft":
       coordinate = {
@@ -70,7 +71,7 @@ const getRegularCoordinate = (
   popupRect: DOMRect,
   { placement, padding = 0 }: CoordinateOptions
 ) => {
-  let coordinate: Coordinate = undefined;
+  let coordinate: Coordinate = null;
   switch (placement) {
     case "topLeft":
       coordinate = {

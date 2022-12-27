@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { Maybe } from "types-custom";
 import { Placement } from "../../Popup";
 import { getPosition } from "./utils";
 

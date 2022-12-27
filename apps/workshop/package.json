@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
-    "lint": "tsc --noEmit && eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
+    "tsc": "tsc --noEmit",
+    "lint": "eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -26,6 +27,11 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "babel-loader": "^8.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-custom": "*",
+    "stylelint": "^14.16.0",
+    "stylelint-config-custom": "*",
+    "tsconfig-custom": "*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }

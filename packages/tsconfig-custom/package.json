@@ -1,6 +1,7 @@
 {
-  "name": "tsconfig",
+  "name": "tsconfig-custom",
   "version": "0.0.0",
+  "description": "Custom Typescript configurations for all workspaces",
   "private": true,
   "files": [
     "base.json",

@@ -5,17 +5,20 @@
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "tsc --noEmit && eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
+    "tsc": "tsc --noEmit",
+    "lint": "eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
   },
   "devDependencies": {
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "react": "^18.2.0",
     "stylelint": "^14.16.0",
     "stylelint-config-custom": "*",
-    "tsconfig": "*",
+    "tsconfig-custom": "*",
+    "types-custom": "*",
     "typescript": "^4.5.2"
   },
   "dependencies": {
