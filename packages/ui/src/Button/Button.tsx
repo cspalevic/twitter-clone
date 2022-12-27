@@ -1,6 +1,5 @@
 import { ForwardedRef, MouseEventHandler, forwardRef } from "react";
-import { Icon, IconProps } from "../Icon/Icon";
-import { Text } from "../Text/Text";
+import { Icon, IconProps, Text } from "ui";
 import styles from "./Button.module.css";
 
 export type ButtonProps = {

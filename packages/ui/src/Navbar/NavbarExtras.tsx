@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Popup } from "../Popup/Popup";
+import { Popup } from "ui";
 import { NavbarProps } from "./Navbar";
 import styles from "./NavbarExtras.module.css";
 import { NavbarItem } from "./NavbarItem";

@@ -1,9 +1,10 @@
 import cx from "classnames";
+import { ReactNode } from "react";
 import styles from "./Avatar.module.css";
 
 export type AvatarProps = {
   className?: string;
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 export const Avatar = ({ children, className }: AvatarProps) => (

@@ -1,7 +1,6 @@
 import cx from "classnames";
 import { ForwardedRef, MouseEventHandler, forwardRef, useState } from "react";
-import { Icon, IconName, IconProps } from "../Icon/Icon";
-import { Text, TextProps } from "../Text/Text";
+import { Icon, IconName, IconProps, Text, TextProps } from "ui";
 import styles from "./NavbarItem.module.css";
 
 export type NavbarItemValue = {

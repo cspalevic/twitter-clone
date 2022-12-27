@@ -6,5 +6,6 @@ export * from "./Navbar/Navbar";
 export * from "./Navbar/NavbarItem";
 export * from "./Popup/Popup";
 export * from "./PostInput/PostInput";
+export * from "./ProfileButton/ProfileButton";
 export * from "./StickyHeader/StickyHeader";
 export * from "./Text/Text";

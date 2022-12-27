@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { RefObject } from "react";
+import { ReactNode, RefObject } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Popup.module.css";
 import { PopupBox } from "./PopupBox";
@@ -21,7 +21,7 @@ export type PopupProps = {
   placement?: Placement;
   inverse?: boolean;
   showArrow?: boolean;
-  children?: JSX.Element;
+  children?: ReactNode;
 };
 
 export const Popup = (props: PopupProps) => {

@@ -10,7 +10,7 @@ export const Layout = ({ children }: LayoutProps) => (
   <div className={styles.layoutSpread}>
     <div className={styles.layoutContainer}>
       <Header />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   </div>
 );

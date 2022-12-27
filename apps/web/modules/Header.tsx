@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Avatar, Button, Icon, IconButton, Navbar } from "ui";
+import { Button, IconButton, Navbar, ProfileButton } from "ui";
 import styles from "./Header.module.css";
 import { NAVBAR_ITEM_LIMIT, getNavbarItems } from "./navigation";
 
@@ -8,31 +8,37 @@ export const Header = () => {
   const { pathname, push } = useRouter();
 
   return (
-    <header className={styles.headerContainer}>
-      <div className={styles.headerActionBarContainer}>
-        <IconButton
-          onClick={() => alert("logo clicked")}
-          iconProps={{
-            iconName: "Logo",
-            className: styles.logo,
-          }}
-        />
-        <Navbar
-          items={getNavbarItems(pathname, push)}
-          limit={NAVBAR_ITEM_LIMIT}
-        />
-        <Button text="Tweet" onClick={() => alert("You clicked tweet")} />
-      </div>
-      <button className={styles.profileContainer}>
-        <Avatar>
-          <Image src="/image.png" width={25} height={25} />
-        </Avatar>
-        <div className={styles.profileLabels}>
-          <p>Charlie Spalevic</p>
-          <span>@cspalevic</span>
+    <header className={styles.header}>
+      <div className={styles.headerAlignment}>
+        <div className={styles.headerItems}>
+          <div>
+            <IconButton
+              onClick={() => alert("logo clicked")}
+              iconProps={{
+                iconName: "Logo",
+                className: styles.logo,
+              }}
+            />
+            <Navbar
+              items={getNavbarItems(pathname, push)}
+              limit={NAVBAR_ITEM_LIMIT}
+            />
+            <Button text="Tweet" onClick={() => alert("You clicked tweet")} />
+          </div>
+          <ProfileButton
+            avatarImage={
+              <Image
+                alt="Person Avatar"
+                src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/170.jpg"
+                width={50}
+                height={50}
+              />
+            }
+            name="Charllie Spalevic"
+            handle="@cspalevic"
+          />
         </div>
-        <Icon className={styles.profileIcon} iconName="More" />
-      </button>
+      </div>
     </header>
   );
 };

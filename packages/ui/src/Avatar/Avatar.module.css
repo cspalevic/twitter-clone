@@ -1,7 +1,6 @@
 .avatarContainer {
   display: inline-block;
   border-radius: 100%;
-  padding: 10px;
 }
 
 .avatarContainer img {

@@ -1,0 +1,28 @@
+@value theme: "theme";
+@value --gray, --white from theme;
+
+.profile {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  padding: 7px 12px;
+  border-radius: 35px;
+}
+
+.profile:hover {
+  background-color: --gray;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+
+.profileIcon svg {
+  padding-left: 35px;
+  fill: --white;
+}
