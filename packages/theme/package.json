@@ -7,9 +7,7 @@
     "lint": "stylelint \"**/*.css\""
   },
   "devDependencies": {
+    "stylelint": "^14.16.0",
     "stylelint-config-custom": "*"
-  },
-  "dependencies": {
-    "stylelint": "^14.16.0"
   }
 }

@@ -20,6 +20,7 @@ export const PostInput = () => {
           <div>Everyone can reploy</div>
           <div>
             <div>Icons</div>
+            {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
             <Button text="Tweet" onClick={() => {}} />
           </div>
         </div>

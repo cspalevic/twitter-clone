@@ -1,7 +1,8 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "rules": {
-    "selector-class-pattern": "(^[a-z]|[A-Z0-0])[a-z]*$",
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["value"] }]
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["value"] }],
+    "selector-class-pattern": "^[a-zA-Z]+([A-Z][a-z]+)?(-([a-z]+))?$",
+    "color-function-notation": null
   }
 }
