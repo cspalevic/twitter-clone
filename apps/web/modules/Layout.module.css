@@ -1,21 +1,14 @@
 @value theme: "theme";
 @value --lightgray from theme;
 
-.layoutSpread {
+.layout {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.layoutContainer {
-  height: inherit;
-  max-width: 768px;
-  display: flex;
-  flex-direction: row;
-}
-
 .main {
-  height: inherit;
+  flex: 1;
   border-left: 1px solid --lightgray;
   border-right: 1px solid --lightgray;
 }

@@ -52,9 +52,9 @@
   },
   "lint-staged": {
     "*": [
-      "yarn run format",
-      "yarn run tsc",
-      "yarn run lint"
+      "yarn format",
+      "bash -c 'yarn tsc'",
+      "bash -c 'yarn lint'"
     ]
   }
 }
