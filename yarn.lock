@@ -2883,7 +2883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:6.5.15":
+"@storybook/addons@npm:6.5.15, @storybook/addons@npm:^6.5.14, @storybook/addons@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addons@npm:6.5.15"
   dependencies:
@@ -2905,7 +2905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:6.5.15":
+"@storybook/api@npm:6.5.15, @storybook/api@npm:^6.5.14":
   version: 6.5.15
   resolution: "@storybook/api@npm:6.5.15"
   dependencies:
@@ -3112,7 +3112,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:6.5.15":
+"@storybook/components@npm:6.5.15, @storybook/components@npm:^6.5.14":
   version: 6.5.15
   resolution: "@storybook/components@npm:6.5.15"
   dependencies:
@@ -3230,7 +3230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-events@npm:6.5.15":
+"@storybook/core-events@npm:6.5.15, @storybook/core-events@npm:^6.5.14":
   version: 6.5.15
   resolution: "@storybook/core-events@npm:6.5.15"
   dependencies:
@@ -3715,7 +3715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:6.5.15":
+"@storybook/theming@npm:6.5.15, @storybook/theming@npm:^6.5.14":
   version: 6.5.15
   resolution: "@storybook/theming@npm:6.5.15"
   dependencies:
@@ -15117,6 +15117,30 @@ prettier@latest:
   languageName: node
   linkType: hard
 
+"storybook-dark-mode@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "storybook-dark-mode@npm:2.0.4"
+  dependencies:
+    "@storybook/addons": ^6.5.14
+    "@storybook/api": ^6.5.14
+    "@storybook/components": ^6.5.14
+    "@storybook/core-events": ^6.5.14
+    "@storybook/theming": ^6.5.14
+    fast-deep-equal: ^3.1.3
+    global: ^4.4.0
+    memoizerific: ^1.11.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: afe57016b041bd39c54ece8346546175f9cc59c1761d2d8a88bbc8cbfed40a296cfaff07af94bfd8c1c06e54aecc72f1798426fa1e7c8866544607ab45e03dfa
+  languageName: node
+  linkType: hard
+
 "stream-browserify@npm:^2.0.1":
   version: 2.0.2
   resolution: "stream-browserify@npm:2.0.2"
@@ -15399,7 +15423,7 @@ prettier@latest:
   languageName: node
   linkType: hard
 
-"stylelint-config-custom@*, stylelint-config-custom@workspace:packages/stylelint-config-custom":
+"stylelint-config-custom@*, stylelint-config-custom@workspace:^, stylelint-config-custom@workspace:packages/stylelint-config-custom":
   version: 0.0.0-use.local
   resolution: "stylelint-config-custom@workspace:packages/stylelint-config-custom"
   dependencies:
@@ -16801,6 +16825,8 @@ turbo@latest:
     next: ^13.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    stylelint: ^14.16.0
+    stylelint-config-custom: "workspace:^"
     theme: "*"
     tsconfig-custom: "*"
     typescript: ^4.5.3
@@ -17101,6 +17127,7 @@ turbo@latest:
     "@storybook/addon-essentials": ^6.5.15
     "@storybook/addon-interactions": ^6.5.15
     "@storybook/addon-links": ^6.5.15
+    "@storybook/addons": ^6.5.15
     "@storybook/builder-vite": ^0.2.6
     "@storybook/react": ^6.5.15
     "@storybook/testing-library": ^0.0.13
@@ -17112,6 +17139,7 @@ turbo@latest:
     eslint-config-custom: "*"
     react: ^18.2.0
     react-dom: ^18.2.0
+    storybook-dark-mode: ^2.0.4
     stylelint: ^14.16.0
     stylelint-config-custom: "*"
     tsconfig-custom: "*"

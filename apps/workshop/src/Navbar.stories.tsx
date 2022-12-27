@@ -5,7 +5,18 @@ type NavbarType = typeof Navbar;
 type NavbarStory = ComponentStory<NavbarType>;
 type NavbarMeta = ComponentMeta<NavbarType>;
 
-const Template: NavbarStory = (args) => <Navbar {...args} />;
+const Template: NavbarStory = (args) => (
+  <div
+    style={{
+      width: "500px",
+      height: "500px",
+      display: "flex",
+      alignItems: "flex-end",
+    }}
+  >
+    <Navbar {...args} />
+  </div>
+);
 
 export const SampleNavbar = Template.bind({});
 SampleNavbar.args = {

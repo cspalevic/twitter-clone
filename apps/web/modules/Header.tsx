@@ -20,7 +20,7 @@ export const Header = () => {
               }}
             />
             <Navbar
-              items={getNavbarItems(pathname, push)}
+              items={getNavbarItems(pathname, push as (path?: string) => void)}
               limit={NAVBAR_ITEM_LIMIT}
             />
             <Button text="Tweet" onClick={() => alert("You clicked tweet")} />

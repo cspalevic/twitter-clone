@@ -128,7 +128,7 @@ export const navbarRoutes: NavbarRoute[] = [
 const mapRouteToItem = (
   { path, icon, activeIcon, text, subRoutes }: NavbarRoute,
   currentPath: string,
-  push: Function
+  push: (path?: string) => void
 ): NavbarItemValue => ({
   text,
   active: currentPath === path,
@@ -141,6 +141,6 @@ const mapRouteToItem = (
 
 export const getNavbarItems = (
   currentPath: string,
-  push: Function
+  push: (path?: string) => void
 ): NavbarItemValue[] =>
   navbarRoutes.map((route) => mapRouteToItem(route, currentPath, push));
