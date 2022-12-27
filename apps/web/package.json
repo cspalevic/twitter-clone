@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "lint": "yarn run lint:ts && yarn run lint:css",
+    "lint:ts": "eslint --fix \"**/*.{ts,tsx}*\"",
+    "lint:css": "stylelint --fix \"**/*.css\""
   },
   "dependencies": {
     "@next/font": "^13.1.1",

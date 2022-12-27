@@ -7,7 +7,9 @@
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
     "tsc": "tsc --noEmit",
-    "lint": "eslint \"**/*.{ts,tsx}*\" && stylelint \"**/*.css\""
+    "lint": "yarn run lint:ts && yarn run lint:css",
+    "lint:ts": "eslint --fix \"**/*.{ts,tsx}*\"",
+    "lint:css": "stylelint --fix \"**/*.css\""
   },
   "dependencies": {
     "react": "^18.2.0",

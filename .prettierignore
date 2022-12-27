@@ -1,5 +1,5 @@
 .next
-.husky
+.husky/*
 node_modules
 .gitignore
 yarn.lock

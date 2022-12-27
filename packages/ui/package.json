@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "tsc": "tsc --noEmit",
-    "lint": "eslint --fix \"**/*.{ts,tsx}*\" && stylelint --fix \"**/*.css\""
+    "lint": "yarn run lint:ts && yarn run lint:css",
+    "lint:ts": "eslint --fix \"**/*.{ts,tsx}*\"",
+    "lint:css": "stylelint --fix \"**/*.css\""
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

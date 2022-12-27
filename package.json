@@ -11,7 +11,7 @@
     "dev": "npx check-engine && turbo run dev --parallel",
     "tsc": "turbo run tsc",
     "lint": "turbo run lint",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{cjs,js,jsx,ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{cjs,js,jsx,ts,tsx,md}\"",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -45,17 +45,19 @@
       }
     }
   },
-  "lint-staged": {
-    "apps/*": [
-      "yarn format",
-      "yarn lint"
-    ],
-    "packages/ui": [
-      "yarn format",
-      "yarn lint"
-    ]
-  },
   "dependencies": {
     "rooks": "^7.4.2"
+  },
+  "lint-staged": {
+    "*": [
+      "yarn run format"
+    ],
+    "**/*.{ts,tsx}": [
+      "yarn run tsc",
+      "yarn run lint:ts"
+    ],
+    "**/*.css": [
+      "yarn run lint:css"
+    ]
   }
 }
