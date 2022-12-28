@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --gray, --white from theme;
+@value --white, --darkgray from theme;
 
 .profile {
   cursor: pointer;
@@ -12,7 +12,7 @@
 }
 
 .profile:hover {
-  background-color: --gray;
+  background-color: --darkgray;
 }
 
 .profileText {

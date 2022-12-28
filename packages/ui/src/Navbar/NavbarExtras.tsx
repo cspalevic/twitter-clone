@@ -17,6 +17,7 @@ export const NavbarExtras = ({ items }: Pick<NavbarProps, "items">) => {
           text: "More",
           onClick: () => setIsPopupOpen(true),
         }}
+        shown
       />
       {isPopupOpen && (
         <Popup
@@ -28,11 +29,7 @@ export const NavbarExtras = ({ items }: Pick<NavbarProps, "items">) => {
         >
           <div className={styles.navbarExtrasItemsContainer}>
             {items.map((item, index) => (
-              <NavbarItem
-                item={item}
-                key={index}
-                className={styles.navbarExtrasItem}
-              />
+              <NavbarItem item={item} key={index} />
             ))}
           </div>
         </Popup>

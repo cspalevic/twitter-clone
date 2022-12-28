@@ -1,10 +1,9 @@
+import cx from "classnames";
 import { MouseEventHandler, ReactNode, useRef, useState } from "react";
-import { Avatar } from "../Avatar/Avatar";
-import { Icon } from "../Icon/Icon";
-import { Menu, MenuItem } from "../Menu/Menu";
-import { Popup } from "../Popup/Popup";
+import { Avatar, Icon, Menu, MenuItem, Popup, Text } from "ui";
 import styles from "./PostAudience.module.css";
-import { usePostInput } from "./PostInputProvider";
+import { usePostInputActions, usePostInputState } from "./PostInputProvider";
+import { PostInputAudience } from "./state/state";
 
 type PostAudienceItemProps = {
   avatar: ReactNode;
@@ -25,7 +24,11 @@ const PostAudienceItem = ({
       <div className={styles.postAudienceItemInfoContainer}>
         {children}
         {isSelected && (
-          <Icon className={styles.audienceSelectIcon} iconName="Checkmark" />
+          <Icon
+            iconName="Checkmark"
+            color={isSelected ? "secondary" : "primary"}
+            size="sm"
+          />
         )}
       </div>
     </div>
@@ -33,56 +36,77 @@ const PostAudienceItem = ({
 );
 
 export const PostAudience = () => {
-  const {
-    audience: [value, setValue],
-  } = usePostInput();
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const anchorEl = useRef<HTMLButtonElement>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const { status, audience } = usePostInputState();
+  const { updateAudience } = usePostInputActions();
 
-  const selectAudience = (audience: typeof value) => {
-    setValue(audience);
+  const handleClick = (audience: PostInputAudience) => {
+    updateAudience(audience);
     setIsPopupOpen(false);
   };
 
+  if (status === "inactive") return null;
   return (
     <div>
       <button
         ref={anchorEl}
-        className={styles.postAudience}
+        className={cx(
+          styles.postAudienceButton,
+          styles[`postAudienceButton-${audience}`]
+        )}
         onClick={() => setIsPopupOpen(!isPopupOpen)}
         disabled={isPopupOpen}
       >
-        <span>{value === "everyone" ? "Everyone" : "Twitter Circle"}</span>
-        <Icon size="sm" iconName="Caret" />
+        <Text
+          text={audience === "everyone" ? "Everyone" : "Twitter Circle"}
+          size="sm"
+          color={audience === "everyone" ? "tertiary" : "green"}
+        />
+        <Icon
+          className={styles.postAudienceButtonIcon}
+          size="xs"
+          iconName="Caret"
+          color={audience === "everyone" ? "secondary" : "green"}
+        />
       </button>
       {isPopupOpen && (
         <Popup
           placement="bottom"
           anchorEl={anchorEl}
           onClose={() => setIsPopupOpen(false)}
+          addPadding
         >
-          <Menu title="Choose audience" className={styles.postAudienceMenu}>
+          <Menu title="Choose audience">
             <PostAudienceItem
-              onClick={() => selectAudience("everyone")}
-              isSelected={value === "everyone"}
+              onClick={() => handleClick("everyone")}
+              isSelected={audience === "everyone"}
               avatar={
                 <Avatar className={styles.worldAvatar}>
-                  <Icon className={styles.audienceIcon} iconName="World" />
+                  <Icon
+                    className={styles.audienceIcon}
+                    iconName="World"
+                    size="sm"
+                  />
                 </Avatar>
               }
             >
-              <p>Everyone</p>
+              <Text text="Everyone" size="sm" />
             </PostAudienceItem>
             <PostAudienceItem
-              onClick={() => selectAudience("twitter-circle")}
-              isSelected={value === "twitter-circle"}
+              onClick={() => handleClick("twitter-circle")}
+              isSelected={audience === "twitter-circle"}
               avatar={
                 <Avatar className={styles.twitterCircleAvatar}>
-                  <Icon className={styles.audienceIcon} iconName="Friend" />
+                  <Icon
+                    className={styles.audienceIcon}
+                    iconName="Friend"
+                    size="sm"
+                  />
                 </Avatar>
               }
             >
-              {"Twitter Circle!"}
+              <Text text="Twitter Circle" size="sm" />
             </PostAudienceItem>
           </Menu>
         </Popup>

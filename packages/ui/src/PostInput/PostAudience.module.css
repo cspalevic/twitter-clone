@@ -1,32 +1,39 @@
 @value theme: "theme";
-@value --blue, --white, --lightgreen from theme;
+@value --blue, --white, --green, --lightblue, --lightgreen, --smaltblue from theme;
 
-.postAudience {
+.postAudienceButton {
   cursor: pointer;
   display: flex;
   align-items: center;
-  border: 1px solid --white;
-  padding: 0 15px;
+  padding: 2px 15px;
   border-radius: 15px;
+  margin: 0 0 10px 15px;
+  background-color: transparent;
 }
 
-.postAudience:disabled {
+.postAudienceButton:disabled {
   cursor: default;
+  opacity: 0.5;
 }
 
-.postAudience span {
-  padding: 0;
-  margin: 0;
-  color: --blue;
+.postAudienceButton-everyone {
+  border: 1px solid --smaltblue;
 }
 
-.postAudience svg {
-  vertical-align: middle;
-  fill: --blue;
+.postAudienceButton-everyone:hover:not(:disabled) {
+  background-color: --lightblue;
 }
 
-.postAudienceMenu {
-  min-width: 230px;
+.postAudienceButton-twitter-circle {
+  border: 1px solid --green;
+}
+
+.postAudienceButton-twitter-circle:hover:not(:disabled) {
+  background-color: --lightgreen;
+}
+
+.postAudienceButtonIcon {
+  padding-left: 5px;
 }
 
 .postAudienceItem {
@@ -40,7 +47,6 @@
   align-items: center;
   justify-content: space-between;
   flex: 1;
-  color: --white;
 }
 
 .worldAvatar {
@@ -48,13 +54,9 @@
 }
 
 .twitterCircleAvatar {
-  background-color: --lightgreen;
+  background-color: --green;
 }
 
 .audienceIcon {
   fill: --white;
-}
-
-.audienceSelectIcon {
-  fill: --blue;
 }

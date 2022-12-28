@@ -21,7 +21,7 @@ export const Navbar = forwardRef(
     return (
       <nav className={cx(styles.navbar, className)} ref={ref} role="navigation">
         {shownItems.map((item, index) => (
-          <NavbarItem item={item} key={index} />
+          <NavbarItem item={item} key={index} shown />
         ))}
         {remainingItems.length && <NavbarExtras items={remainingItems} />}
       </nav>

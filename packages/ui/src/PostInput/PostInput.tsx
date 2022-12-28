@@ -1,28 +1,27 @@
-import { Button } from "../Button/Button";
+import { ReactNode } from "react";
+import { Avatar } from "ui";
+import { PostActions } from "./PostActions";
 import { PostAudience } from "./PostAudience";
 import styles from "./PostInput.module.css";
+import { PostInputInteractees } from "./PostInputInteractees";
 import { PostInputProvider } from "./PostInputProvider";
+import { PostTextBox } from "./PostTextBox";
 
 export type PostInputProps = {
+  avatarImage: ReactNode;
   lines?: number;
 };
 
-export const PostInput = () => {
+export const PostInput = ({ avatarImage, lines }: PostInputProps) => {
   return (
     <PostInputProvider>
       <div className={styles.container}>
-        <div className={styles.avatarContainer}>{"Avatar"}</div>
+        <Avatar>{avatarImage}</Avatar>
         <div className={styles.postContainer}>
-          <div>
-            <PostAudience />
-          </div>
-          <div>{"What's happening?"}</div>
-          <div>Everyone can reploy</div>
-          <div>
-            <div>Icons</div>
-            {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-            <Button text="Tweet" onClick={() => {}} />
-          </div>
+          <PostAudience />
+          <PostTextBox placeholder="What's happening?" lines={lines} />
+          <PostInputInteractees />
+          <PostActions />
         </div>
       </div>
     </PostInputProvider>

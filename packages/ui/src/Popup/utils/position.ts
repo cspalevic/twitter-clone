@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 import { Maybe } from "types-custom";
-import { Position, PositionOptions } from ".";
+import { Position, PositionOptions } from "../hooks/usePosition";
 
 type Coordinate = Maybe<Pick<CSSProperties, "top" | "left">>;
 type CoordinateOptions = Omit<PositionOptions, "inverse">;

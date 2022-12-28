@@ -45,7 +45,7 @@ export const navbarRoutes: NavbarRoute[] = [
     path: "/i/twitter_blue_sign_up",
     icon: "TwitterBlueOutlined",
     activeIcon: "TwitterBlue",
-    text: "Twtter Blue",
+    text: "Twitter Blue",
   },
   {
     path: "/profile",

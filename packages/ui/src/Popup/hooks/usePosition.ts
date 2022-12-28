@@ -6,8 +6,8 @@ import {
   useState,
 } from "react";
 import { Maybe } from "types-custom";
-import { Placement } from "../../Popup";
-import { getPosition } from "./utils";
+import { Placement } from "../Popup";
+import { getPosition } from "../utils/position";
 
 export type Position = Maybe<Pick<CSSProperties, "top" | "left" | "maxHeight">>;
 export type PositionOptions = {

@@ -1,8 +1,8 @@
 import cx from "classnames";
 import styles from "./Text.module.css";
 
-type TextSize = "sm" | "md" | "lg";
-type TextColor = "primary" | "secondary";
+export type TextSize = "xs" | "sm" | "md" | "lg";
+export type TextColor = "primary" | "secondary" | "tertiary" | "green";
 
 export type TextProps = {
   text: string;

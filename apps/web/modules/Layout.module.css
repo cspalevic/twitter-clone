@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --lightgray from theme;
+@value --gray from theme;
 
 .layout {
   display: flex;
@@ -9,6 +9,6 @@
 
 .main {
   flex: 1;
-  border-left: 1px solid --lightgray;
-  border-right: 1px solid --lightgray;
+  border-left: 1px solid --gray;
+  border-right: 1px solid --gray;
 }

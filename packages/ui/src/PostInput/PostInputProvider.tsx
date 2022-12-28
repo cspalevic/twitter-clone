@@ -1,40 +1,45 @@
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { ReactNode, createContext, useContext, useMemo } from "react";
+import { Maybe } from "types-custom";
+import { usePostInputReducer } from "./hooks/usePostInputReducer";
 
-type Audience = "everyone" | "twitter-circle";
-type Interactees = "everyone" | "following" | "mentions";
+type PostInputValues = ReturnType<typeof usePostInputReducer>;
+type PostInputState = PostInputValues["state"];
+type PostInputActions = PostInputValues["actions"];
 
-type PostInputValues = {
-  audience: [Audience, Dispatch<SetStateAction<Audience>>];
-  interactees: [Interactees, Dispatch<SetStateAction<Interactees>>];
-};
-
-const PostInputContext = createContext<PostInputValues | undefined>(undefined);
+const PostInputStateContext = createContext<Maybe<PostInputState>>(null);
+const PostInputActionsContext = createContext<Maybe<PostInputActions>>(null);
 
 export type PostInputProviderProps = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 export const PostInputProvider = ({ children }: PostInputProviderProps) => {
-  const audience = useState<Audience>("everyone");
-  const interactees = useState<Interactees>("everyone");
+  const { state, actions } = usePostInputReducer();
+
+  const memoizedValues = useMemo(() => state, [state]);
 
   return (
-    <PostInputContext.Provider value={{ audience, interactees }}>
-      {children}
-    </PostInputContext.Provider>
+    <PostInputStateContext.Provider value={memoizedValues}>
+      <PostInputActionsContext.Provider value={actions}>
+        {children}
+      </PostInputActionsContext.Provider>
+    </PostInputStateContext.Provider>
   );
 };
 
-export const usePostInput = () => {
-  const context = useContext<PostInputValues | undefined>(PostInputContext);
-  if (context === undefined) {
-    throw new Error("You can only usePostInput inside a PostInputProvider");
+export const usePostInputState = () => {
+  const context = useContext(PostInputStateContext);
+  if (!context) {
+    throw new Error("You can only usePostInputState inside <PostProvider />");
+  }
+
+  return context;
+};
+
+export const usePostInputActions = () => {
+  const context = useContext(PostInputActionsContext);
+  if (!context) {
+    throw new Error("You can only usePostInputActiosn inside <PostProvider />");
   }
 
   return context;

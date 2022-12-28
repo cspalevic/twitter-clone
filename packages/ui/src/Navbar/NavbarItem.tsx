@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { ForwardedRef, MouseEventHandler, forwardRef, useState } from "react";
-import { Icon, IconName, IconProps, Text, TextProps } from "ui";
+import { Icon, IconName, Text } from "ui";
 import styles from "./NavbarItem.module.css";
 
 export type NavbarItemValue = {
@@ -13,9 +13,9 @@ export type NavbarItemValue = {
 
 export type NavbarItemProps = {
   item: NavbarItemValue;
+  size?: "sm" | "md";
   className?: string;
-  textSize?: TextProps["size"];
-  iconSize?: IconProps["size"];
+  shown?: boolean;
 };
 
 export const ExpandableNavbarItem = ({
@@ -32,11 +32,12 @@ export const ExpandableNavbarItem = ({
       >
         <Text text={text} size="sm" />
         <Icon
-          className={cx(styles.navbarItemIcon, styles.nestedNavbarItemCaret, {
-            [styles.nestedNavbarItemCaretExpanded]: isExpanded,
+          className={cx(styles.nestedNavbarItemIcon, {
+            [styles.nestedNavbarItemIconExpanded]: isExpanded,
           })}
           size="sm"
           iconName="Caret"
+          color={isExpanded ? "secondary" : "primary"}
         />
       </div>
       {isExpanded && (
@@ -46,8 +47,7 @@ export const ExpandableNavbarItem = ({
               item={subItem}
               key={index}
               className={className}
-              textSize="sm"
-              iconSize="sm"
+              size="sm"
             />
           ))}
         </>
@@ -58,7 +58,7 @@ export const ExpandableNavbarItem = ({
 
 export const NavbarItem = forwardRef(
   (
-    { className, item, textSize = "md", iconSize = "md" }: NavbarItemProps,
+    { className, item, size = "md", shown = false }: NavbarItemProps,
     ref: ForwardedRef<HTMLAnchorElement>
   ) => {
     if (item.items?.length)
@@ -66,9 +66,14 @@ export const NavbarItem = forwardRef(
     const { iconName, text, onClick } = item;
     return (
       <a
-        className={cx(styles.navbarItem, className, {
-          [styles.navbarItemActive]: item.active,
-        })}
+        className={cx(
+          styles.navbarItem,
+          styles[`navbarItem-${size}`],
+          className,
+          {
+            [styles.navbarItemShown]: shown,
+          }
+        )}
         onClick={onClick}
         ref={ref}
       >
@@ -76,12 +81,11 @@ export const NavbarItem = forwardRef(
           <Icon
             className={styles.navbarItemIcon}
             iconName={iconName}
-            size={iconSize}
+            size={size}
+            color="primary"
           />
         )}
-        <div className={styles.navbarItemText}>
-          <Text text={text} size={textSize} />
-        </div>
+        <Text text={text} size={size} bold={item.active} />
       </a>
     );
   }

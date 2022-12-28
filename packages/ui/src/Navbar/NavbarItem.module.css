@@ -1,43 +1,45 @@
 @value theme: "theme";
-@value --white, --blue, --gray from theme;
+@value --white, --darkgray from theme;
 
 .navbarItem {
   cursor: pointer;
   min-height: 40px;
   display: flex;
   align-items: center;
-  border-radius: 25px;
-  padding: 3px 25px 3px 12px;
-  margin-bottom: 12px;
+  padding: 7px 25px 7px 12px;
   transition: background-color 0.2s;
 }
 
 .navbarItem:hover {
-  background-color: --gray;
+  background-color: --darkgray;
 }
 
-.navbarItemActive {
-  font-weight: bold;
+.navbarItemShown {
+  margin-bottom: 5px;
+  border-radius: 25px;
 }
 
-.navbarItemText {
-  padding-left: 20px;
+.navbarItemIcon {
+  padding: 0;
+}
+
+.navbarItem-sm {
+  gap: 10px;
+}
+
+.navbarItem-md {
+  gap: 20px;
 }
 
 .nestedNavbarItem {
   justify-content: space-between;
 }
 
-.navbarItemIcon {
-  fill: --white;
-}
-
-.nestedNavbarItemCaret {
+.nestedNavbarItemIcon {
   transition: 0.1s;
   transform: rotate(0deg);
 }
 
-.nestedNavbarItemCaretExpanded {
-  fill: --blue;
+.nestedNavbarItemIconExpanded {
   transform: rotate(-180deg);
 }

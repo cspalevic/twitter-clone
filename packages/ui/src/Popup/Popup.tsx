@@ -21,6 +21,7 @@ export type PopupProps = {
   placement?: Placement;
   inverse?: boolean;
   showArrow?: boolean;
+  addPadding?: boolean;
   children?: ReactNode;
 };
 

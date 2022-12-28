@@ -31,13 +31,14 @@ export const PopupBox = ({
   placement = "top",
   inverse = false,
   showArrow = false,
+  addPadding = false,
   children,
 }: PopupProps) => {
   const popupMenuRef = useRef(null);
   const position = usePosition(anchorEl, popupMenuRef, {
     placement,
     inverse,
-    padding: showArrow ? ARROW_HEIGHT : 0,
+    padding: showArrow || addPadding ? ARROW_HEIGHT : 0,
   });
   useOutsideClick(popupMenuRef, onClose);
 

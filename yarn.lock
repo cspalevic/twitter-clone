@@ -15423,7 +15423,7 @@ prettier@latest:
   languageName: node
   linkType: hard
 
-"stylelint-config-custom@*, stylelint-config-custom@workspace:^, stylelint-config-custom@workspace:packages/stylelint-config-custom":
+"stylelint-config-custom@*, stylelint-config-custom@workspace:packages/stylelint-config-custom":
   version: 0.0.0-use.local
   resolution: "stylelint-config-custom@workspace:packages/stylelint-config-custom"
   dependencies:
@@ -16826,7 +16826,7 @@ turbo@latest:
     react: ^18.2.0
     react-dom: ^18.2.0
     stylelint: ^14.16.0
-    stylelint-config-custom: "workspace:^"
+    stylelint-config-custom: "*"
     theme: "*"
     tsconfig-custom: "*"
     typescript: ^4.5.3

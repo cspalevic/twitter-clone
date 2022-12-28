@@ -1,0 +1,13 @@
+@value theme: "theme";
+@value --gray from theme;
+
+.postActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.postActionsBorder {
+  border-top: 1px solid --gray;
+}

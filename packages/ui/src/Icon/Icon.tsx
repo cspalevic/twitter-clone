@@ -4,16 +4,19 @@ import styles from "./Icon.module.css";
 import * as svgs from "./svgs";
 
 export type IconName = keyof typeof svgs;
+export type IconSize = "xs" | "sm" | "md" | "lg";
+export type IconColor = "primary" | "secondary" | "green";
 
 export type IconProps = {
   iconName: IconName;
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: IconSize;
+  color?: IconColor;
 };
 
 export const Icon = forwardRef(
   (
-    { iconName, className, size = "md" }: IconProps,
+    { iconName, className, size = "md", color = "primary" }: IconProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const exists = iconName in svgs;
@@ -24,7 +27,12 @@ export const Icon = forwardRef(
     return (
       <div
         ref={ref}
-        className={cx(styles.iconContainer, styles[size], className)}
+        className={cx(
+          styles.iconContainer,
+          styles[`iconSize-${size}`],
+          styles[`iconColor-${color}`],
+          className
+        )}
       >
         <Component />
       </div>

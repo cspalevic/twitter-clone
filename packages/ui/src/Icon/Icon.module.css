@@ -1,19 +1,47 @@
+@value theme: "theme";
+@value --white, --blue, --green from theme;
+
 .iconContainer {
   display: flex;
   justify-content: center;
 }
 
-.sm svg {
+.iconSize-xs svg {
   width: 1.25rem;
   height: auto;
 }
 
-.md svg {
+.iconSize-sm {
+  padding: 7px;
+}
+
+.iconSize-sm svg {
+  width: 1.5rem;
+  height: auto;
+}
+
+.iconSize-md {
+  padding: 12px;
+}
+
+.iconSize-md svg {
   width: 2rem;
   height: auto;
 }
 
-.lg svg {
+.iconSize-lg svg {
   width: 2.5rem;
   height: auto;
+}
+
+.iconColor-primary svg {
+  fill: --white;
+}
+
+.iconColor-secondary svg {
+  fill: --blue;
+}
+
+.iconColor-green svg {
+  fill: --green;
 }

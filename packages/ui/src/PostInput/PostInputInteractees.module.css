@@ -1,0 +1,44 @@
+@value theme: "theme";
+@value --blue, --lightblue from theme;
+
+.postInputInteracteeButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px 15px;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.postInputInteracteeButton:disabled {
+  border: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.postInputInteracteeButton:hover:not(:disabled) {
+  background-color: --lightblue;
+}
+
+.postInputInteracteeButtonIcon {
+  padding-right: 5px;
+}
+
+.postInteracteeItem {
+  display: flex;
+  align-items: center;
+}
+
+.postInteracteeItemInfoContainer {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.avatar {
+  background-color: --blue;
+}
