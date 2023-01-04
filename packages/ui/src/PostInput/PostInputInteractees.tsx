@@ -89,7 +89,7 @@ export const PostInputInteractees = () => {
         >
           <Menu
             title="Who can reply?"
-            titleSize="sm"
+            titleProps={{ size: "sm" }}
             subTitle={
               <>
                 <Text
