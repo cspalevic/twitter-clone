@@ -22,7 +22,7 @@
   padding: 12px;
   transition: background-color 0.2s;
   cursor: pointer;
-  min-height: 50px;
+  border: none;
 }
 
 .menuItem:hover {

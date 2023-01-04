@@ -27,12 +27,20 @@ export const usePostInputReducer = () => {
     [dispatch]
   );
 
+  const updateTweet = useCallback(
+    (tweet: string) => {
+      dispatch({ type: "UPDATE_TWEET", payload: { tweet } });
+    },
+    [dispatch]
+  );
+
   return {
     state,
     actions: {
       setActive,
       updateAudience,
       updateInteractees,
+      updateTweet,
     },
   };
 };

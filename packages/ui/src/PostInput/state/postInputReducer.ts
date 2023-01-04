@@ -3,12 +3,14 @@ import { PostInputState } from "./state";
 export type PostInputStatusActions = "SET_ACTIVE";
 export type PostInputAudienceActions = "UPDATE_AUDIENCE";
 export type PostInputInteracteesActions = "UPDATE_INTERACTEES";
+export type PostInputTweetActions = "UPDATE_TWEET";
 
 type Action = {
   type:
     | PostInputStatusActions
     | PostInputAudienceActions
-    | PostInputInteracteesActions;
+    | PostInputInteracteesActions
+    | PostInputTweetActions;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any;
 };
@@ -32,6 +34,11 @@ export const reducer = (
       return {
         ...state,
         interactees: payload?.interactees,
+      };
+    case "UPDATE_TWEET":
+      return {
+        ...state,
+        tweet: payload?.tweet,
       };
     default:
       return state;

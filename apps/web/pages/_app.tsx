@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <>
       <style jsx global>{`
-        html {
+        * {
           font-family: ${notoSans.style.fontFamily};
         }
       `}</style>

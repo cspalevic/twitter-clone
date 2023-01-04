@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --white, --blue, --green, --lightgray from theme;
+@value --black, --white, --blue, --green, --lightgray from theme;
 
 .text {
   padding: 0;
@@ -36,6 +36,10 @@
 
 .textColor-green {
   color: --green;
+}
+
+.textColor-black {
+  color: --black;
 }
 
 .textBold {

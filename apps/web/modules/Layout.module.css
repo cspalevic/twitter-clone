@@ -1,6 +1,3 @@
-@value theme: "theme";
-@value --gray from theme;
-
 .layout {
   display: flex;
   flex-direction: row;
@@ -9,6 +6,4 @@
 
 .main {
   flex: 1;
-  border-left: 1px solid --gray;
-  border-right: 1px solid --gray;
 }

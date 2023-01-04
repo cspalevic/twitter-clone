@@ -1,0 +1,41 @@
+@value theme: "theme";
+@value --white, --blue, --black, --darkgray from theme;
+
+.searchbar {
+  display: flex;
+  background-color: --darkgray;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.searchbarActive {
+  background-color: transparent;
+  border: 1px solid --blue;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: --white;
+}
+
+.searchResultsContainer {
+  position: absolute;
+  background-color: --black;
+  color: --white;
+  border-radius: 10px;
+  box-shadow: rgb(255, 255, 255, 50%) 0 0 10px;
+  min-width: 350px;
+  min-height: 100px;
+  display: none;
+}
+
+.searchResultsContainerActive {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResults {
+  padding: 25px 35px;
+}

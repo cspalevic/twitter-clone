@@ -4,9 +4,11 @@
 @value --gray: rgb(47, 51, 54);
 @value --blue: rgb(29, 155, 240);
 @value --green: rgb(0, 186, 124);
+@value --red: rgb(138, 13, 32);
 @value --lightgray: rgb(113, 118, 123);
 @value --lightblue: rgb(29, 155, 240, 0.1);
 @value --lightgreen: rgb(0, 186, 124, 0.1);
+@value --lightred: rgb(138, 13, 32, 0.1);
 @value --darkblue: rgb(26, 140, 216);
 @value --darkgray: rgb(22, 24, 28);
 @value --smaltblue: rgb(83, 100, 113);

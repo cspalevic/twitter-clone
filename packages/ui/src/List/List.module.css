@@ -1,0 +1,16 @@
+@value theme: "theme";
+@value --darkgray from theme;
+
+.list {
+  background-color: --darkgray;
+  border-radius: 15px;
+  padding-bottom: 0 !important;
+}
+
+.showMoreItem {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

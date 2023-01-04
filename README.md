@@ -11,12 +11,15 @@ Building out a basic Twitter Clone with
 
 Make sure you have the following basic requirements:
 
-- [Yarn](https://yarnpkg.com/getting-started/install)
+- NodeJS >= 14
+- Supabase project
 
-Install everything
+Initialize supabase, login and link your project
 
 ```
-yarn install
+npx supabase init
+npx supabase login
+npx supabase link --project-ref <project_ref> -p <db_password>
 ```
 
 Link your Vercel account to Turborepo to enable remote caching
@@ -24,6 +27,19 @@ Link your Vercel account to Turborepo to enable remote caching
 ```
 npx turbo login
 npx turbo link
+```
+
+Install yarn
+
+```
+corepack enable yarn
+corepack prepare
+```
+
+Install project dependencies
+
+```
+yarn install
 ```
 
 ## How to run

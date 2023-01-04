@@ -7,7 +7,7 @@ export type PostTextBoxProps = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const PostTextBox = ({ placeholder, lines = 1 }: PostTextBoxProps) => {
+export const PostTextBox = ({ placeholder }: PostTextBoxProps) => {
   const { status } = usePostInputState();
   const { setActive } = usePostInputActions();
 

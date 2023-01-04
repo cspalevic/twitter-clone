@@ -1,0 +1,53 @@
+@value theme: "theme";
+@value --blue, --green, --red, --lightblue, --lightgreen, --lightred from theme;
+
+.postActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10px;
+  gap: 50px;
+}
+
+.postActionItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.2s;
+}
+
+.postActionItem-blue:hover:not(:disabled) button {
+  background-color: --lightblue;
+}
+
+.postActionItem-blue:hover:not(:disabled) svg {
+  fill: --blue;
+}
+
+.postActionItem-blue:hover:not(:disabled) span {
+  color: --blue;
+}
+
+.postActionItem-green:hover:not(:disabled) button {
+  background-color: --lightgreen;
+}
+
+.postActionItem-green:hover:not(:disabled) svg {
+  fill: --green;
+}
+
+.postActionItem-green:hover:not(:disabled) span {
+  color: --green;
+}
+
+.postActionItem-red:hover:not(:disabled) button {
+  background-color: --lightred;
+}
+
+.postActionItem-red:hover:not(:disabled) svg {
+  fill: --red;
+}
+
+.postActionItem-red:hover:not(:disabled) span {
+  color: --red;
+}

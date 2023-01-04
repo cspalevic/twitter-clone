@@ -8,10 +8,12 @@ export type PostInputState = {
   status: PostInputStatus;
   audience: PostInputAudience;
   interactees: PostInputInteractees;
+  tweet: string;
 };
 
 export const initialState: PostInputState = {
   status: "inactive",
   audience: "everyone",
   interactees: "everyone",
+  tweet: "",
 };

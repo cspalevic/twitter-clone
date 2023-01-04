@@ -1,9 +1,13 @@
 @value theme: "theme";
-@value --white, --blue, --green from theme;
+@value --white, --blue, --green, --lightgray from theme;
 
 .iconContainer {
   display: flex;
   justify-content: center;
+}
+
+.iconSize-xs {
+  padding: 5px;
 }
 
 .iconSize-xs svg {
@@ -39,6 +43,10 @@
 }
 
 .iconColor-secondary svg {
+  fill: --lightgray;
+}
+
+.iconColor-tertiary svg {
   fill: --blue;
 }
 

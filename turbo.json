@@ -1,8 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "prepare": {
+      "dependsOn": ["$SUPABASE_PROJECT_URL", "$SUPABASE_PROJECT_KEY"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "$SUPABASE_PROJECT_URL", "$SUPABASE_PROJECT_KEY"],
       "outputs": ["dist/**", ".next/**", "storybook-static/**"]
     },
     "lint": {

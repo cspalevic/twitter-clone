@@ -1,0 +1,12 @@
+.trendingListItem {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
+
+.trendingListItemInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0;
+}

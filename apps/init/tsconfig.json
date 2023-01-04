@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig-custom/nextjs.json",
+  "include": ["*.ts", "src/types.ts", "src/seed.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "target": "ESNext"
+  }
+}

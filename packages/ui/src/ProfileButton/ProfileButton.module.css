@@ -1,5 +1,5 @@
 @value theme: "theme";
-@value --white, --darkgray from theme;
+@value --white, --gray, --darkgray from theme;
 
 .profile {
   cursor: pointer;
@@ -25,4 +25,17 @@
 .profileIcon svg {
   padding-left: 35px;
   fill: --white;
+}
+
+.menu {
+  padding: 3px 0 10px;
+  min-width: 300px;
+}
+
+.menuItem {
+  text-align: left;
+}
+
+.menuItem:first-of-type {
+  border-top: 1px solid --gray;
 }

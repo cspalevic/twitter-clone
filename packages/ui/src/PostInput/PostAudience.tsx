@@ -9,7 +9,7 @@ type PostAudienceItemProps = {
   avatar: ReactNode;
   children: ReactNode;
   isSelected: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLDivElement>;
 };
 
 const PostAudienceItem = ({
@@ -26,7 +26,7 @@ const PostAudienceItem = ({
         {isSelected && (
           <Icon
             iconName="Checkmark"
-            color={isSelected ? "secondary" : "primary"}
+            color={isSelected ? "tertiary" : "primary"}
             size="sm"
           />
         )}
@@ -60,14 +60,14 @@ export const PostAudience = () => {
       >
         <Text
           text={audience === "everyone" ? "Everyone" : "Twitter Circle"}
-          size="sm"
+          size="xs"
           color={audience === "everyone" ? "tertiary" : "green"}
         />
         <Icon
           className={styles.postAudienceButtonIcon}
           size="xs"
           iconName="Caret"
-          color={audience === "everyone" ? "secondary" : "green"}
+          color={audience === "everyone" ? "tertiary" : "green"}
         />
       </button>
       {isPopupOpen && (

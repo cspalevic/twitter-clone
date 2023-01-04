@@ -1,12 +1,10 @@
 @value theme: "theme";
-@value --blue, --white, --blue, --lightblue, --darkblue from theme;
+@value --black, --blue, --white, --blue, --lightblue, --darkblue from theme;
 
 .button {
   cursor: pointer;
   border: none;
   border-radius: 25px;
-  background-color: --blue;
-  color: --white;
   font-size: 1rem;
   font-weight: bold;
   transition: background-color 0.2s;
@@ -17,16 +15,26 @@
   opacity: 0.5;
 }
 
-.button:hover:not(:disabled) {
-  background-color: --darkblue;
-}
-
 .buttonSize-sm {
   padding: 10px 15px;
 }
 
 .buttonSize-md {
   padding: 15px 85px;
+}
+
+.buttonStyle-primary {
+  background-color: --blue;
+  color: --white;
+}
+
+.buttonStyle-primary:hover:not(:disabled) {
+  background-color: --darkblue;
+}
+
+.buttonStyle-secondary {
+  background-color: --white;
+  color: --black;
 }
 
 .iconButton {

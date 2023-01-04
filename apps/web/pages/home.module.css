@@ -1,5 +1,20 @@
 @value theme: "theme";
-@value --white, --black from theme;
+@value --white, --gray from theme;
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 25px;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  max-width: 535px;
+  border-left: 1px solid --gray;
+  border-right: 1px solid --gray;
+}
 
 .header {
   width: 100%;
@@ -14,4 +29,11 @@
 
 .header svg {
   fill: --white;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 350px;
 }

@@ -1,5 +1,5 @@
 import { ReactNode, useRef, useState } from "react";
-import { Avatar, Icon, Popup, Text } from "ui";
+import { Avatar, Icon, Menu, MenuItem, Popup, Text } from "ui";
 import styles from "./ProfileButton.module.css";
 
 export type ProfileButtonProps = {
@@ -37,7 +37,14 @@ export const ProfileButton = ({
           onClose={() => setIsPopupOpen(false)}
           showArrow
         >
-          <h1>Hello</h1>
+          <Menu className={styles.menu}>
+            <MenuItem className={styles.menuItem} onClick={console.log}>
+              <Text size="sm" text="Add an existing account" />
+            </MenuItem>
+            <MenuItem className={styles.menuItem} onClick={console.log}>
+              <Text size="sm" text="Log out @cspalevic" />
+            </MenuItem>
+          </Menu>
         </Popup>
       )}
     </>

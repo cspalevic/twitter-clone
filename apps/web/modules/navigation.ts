@@ -133,7 +133,7 @@ const mapRouteToItem = (
   text,
   active: currentPath === path,
   iconName: currentPath === path ? activeIcon : icon,
-  onClick: () => (subRoutes?.length ? null : push(path)),
+  onClick: () => null,
   items:
     subRoutes &&
     subRoutes.map((route) => mapRouteToItem(route, currentPath, push)),

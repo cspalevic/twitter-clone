@@ -17,7 +17,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "MediaOutlined",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("media clicked")}
         />
@@ -25,7 +25,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "GifOutlined",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("gif clicked")}
         />
@@ -33,7 +33,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "Poll",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("poll clicked")}
         />
@@ -41,7 +41,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "Emoji",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("emoji clicked")}
         />
@@ -49,7 +49,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "Schedule",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("schedule clicked")}
         />
@@ -57,7 +57,7 @@ export const PostActions = () => {
           iconProps={{
             iconName: "Location",
             size: "sm",
-            color: "secondary",
+            color: "tertiary",
           }}
           onClick={() => alert("location clicked")}
           disabled={true}

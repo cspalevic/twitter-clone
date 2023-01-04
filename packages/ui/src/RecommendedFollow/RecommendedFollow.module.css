@@ -1,0 +1,13 @@
+.recommendedFollow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+}
+
+.nameContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

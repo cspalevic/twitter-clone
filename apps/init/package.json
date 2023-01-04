@@ -1,0 +1,20 @@
+{
+  "name": "init",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "tsx src/seed"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@types/node": "^18.11.18",
+    "csv-parser": "^3.0.0",
+    "eslint": "^8.31.0",
+    "eslint-config-custom": "*",
+    "supabase": "^1.27.10",
+    "tsconfig-custom": "*",
+    "tsx": "^3.12.1",
+    "types-custom": "*",
+    "typescript": "^4.9.4"
+  }
+}

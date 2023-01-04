@@ -4,26 +4,27 @@ import { Text, TextSize } from "ui";
 import styles from "./Menu.module.css";
 
 export type MenuItemProps = {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLDivElement>;
   children: ReactNode;
+  className?: string;
 };
 
 export type MenuProps = {
-  title: string;
+  title?: string;
   subTitle?: ReactNode;
   children: ReactNode;
   titleSize?: TextSize;
   className?: string;
 };
 
-export const MenuItem = ({ onClick, children }: MenuItemProps) => (
-  <button onClick={onClick} className={styles.menuItem}>
+export const MenuItem = ({ onClick, children, className }: MenuItemProps) => (
+  <div onClick={onClick} className={cx(styles.menuItem, className)}>
     {children}
-  </button>
+  </div>
 );
 
 export const Menu = ({
-  title,
+  title = "",
   subTitle,
   children,
   className,

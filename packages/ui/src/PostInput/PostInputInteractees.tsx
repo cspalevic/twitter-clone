@@ -8,7 +8,7 @@ type PostAudienceInteracteeProps = {
   iconName: IconName;
   text: string;
   isSelected: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLDivElement>;
 };
 
 const PostAudienceInteractee = ({
@@ -27,7 +27,7 @@ const PostAudienceInteractee = ({
         {isSelected && (
           <Icon
             iconName="Checkmark"
-            color={isSelected ? "secondary" : "primary"}
+            color={isSelected ? "tertiary" : "primary"}
             size="sm"
           />
         )}
@@ -76,9 +76,9 @@ export const PostInputInteractees = () => {
           className={styles.postInputInteracteeButtonIcon}
           iconName={iconName}
           size="xs"
-          color="secondary"
+          color="tertiary"
         />
-        <Text text={text} size="sm" color="tertiary" />
+        <Text text={text} size="xs" color="tertiary" />
       </button>
       {isPopupOpen && (
         <Popup

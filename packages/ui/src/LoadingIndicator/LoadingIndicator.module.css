@@ -1,0 +1,30 @@
+@value theme: "theme";
+@value --blue from theme;
+
+@keyframes loading-indicator {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: 50%;
+  }
+
+  100% {
+    left: calc(100% - 75px);
+  }
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.loadingIndicator {
+  position: absolute;
+  background-color: --blue;
+  height: 3px;
+  width: 75px;
+  border-radius: inherit;
+  animation: loading-indicator 1s linear 0s infinite normal;
+}

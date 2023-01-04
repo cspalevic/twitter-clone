@@ -5,7 +5,7 @@ import * as svgs from "./svgs";
 
 export type IconName = keyof typeof svgs;
 export type IconSize = "xs" | "sm" | "md" | "lg";
-export type IconColor = "primary" | "secondary" | "green";
+export type IconColor = "primary" | "secondary" | "tertiary" | "green";
 
 export type IconProps = {
   iconName: IconName;

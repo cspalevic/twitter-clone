@@ -4,10 +4,12 @@ import { Icon, IconProps, Text } from "ui";
 import styles from "./Button.module.css";
 
 export type ButtonProps = {
-  disabled?: boolean;
-  size?: "sm" | "md";
   text: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+  disabled?: boolean;
+  size?: "sm" | "md";
+  style?: "primary" | "secondary";
 };
 
 export type IconButtonProps = Omit<ButtonProps, "text"> & {
@@ -15,12 +17,13 @@ export type IconButtonProps = Omit<ButtonProps, "text"> & {
 };
 
 export const IconButton = ({
+  className,
   disabled,
   onClick,
   iconProps: { size = "md", ...rest },
 }: IconButtonProps) => (
   <button
-    className={cx(styles.iconButton)}
+    className={cx(styles.iconButton, className)}
     disabled={disabled}
     onClick={onClick}
   >
@@ -30,16 +33,32 @@ export const IconButton = ({
 
 export const Button = forwardRef(
   (
-    { disabled, text, onClick, size = "md" }: ButtonProps,
+    {
+      className,
+      disabled,
+      text,
+      onClick,
+      style = "primary",
+      size = "md",
+    }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => (
     <button
       ref={ref}
-      className={cx(styles.button, styles[`buttonSize-${size}`])}
+      className={cx(
+        styles.button,
+        styles[`buttonStyle-${style}`],
+        styles[`buttonSize-${size}`],
+        className
+      )}
       disabled={disabled}
       onClick={onClick}
     >
-      <Text text={text} size={size} />
+      <Text
+        text={text}
+        size={size}
+        color={style === "primary" ? "primary" : "black"}
+      />
     </button>
   )
 );

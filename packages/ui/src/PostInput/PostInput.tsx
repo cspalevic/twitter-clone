@@ -9,17 +9,16 @@ import { PostTextBox } from "./PostTextBox";
 
 export type PostInputProps = {
   avatarImage: ReactNode;
-  lines?: number;
 };
 
-export const PostInput = ({ avatarImage, lines }: PostInputProps) => {
+export const PostInput = ({ avatarImage }: PostInputProps) => {
   return (
     <PostInputProvider>
       <div className={styles.container}>
         <Avatar>{avatarImage}</Avatar>
         <div className={styles.postContainer}>
           <PostAudience />
-          <PostTextBox placeholder="What's happening?" lines={lines} />
+          <PostTextBox placeholder="What's happening?" />
           <PostInputInteractees />
           <PostActions />
         </div>
