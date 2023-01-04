@@ -16,11 +16,13 @@ export type NavbarItemProps = {
   size?: "sm" | "md";
   className?: string;
   shown?: boolean;
+  isExtra?: boolean;
 };
 
 export const ExpandableNavbarItem = ({
   item: { text, items = [] },
   className,
+  isExtra = false,
 }: NavbarItemProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -48,6 +50,7 @@ export const ExpandableNavbarItem = ({
               key={index}
               className={className}
               size="sm"
+              isExtra={isExtra}
             />
           ))}
         </>
@@ -58,11 +61,23 @@ export const ExpandableNavbarItem = ({
 
 export const NavbarItem = forwardRef(
   (
-    { className, item, size = "md", shown = false }: NavbarItemProps,
+    {
+      className,
+      item,
+      size = "md",
+      shown = false,
+      isExtra = false,
+    }: NavbarItemProps,
     ref: ForwardedRef<HTMLAnchorElement>
   ) => {
     if (item.items?.length)
-      return <ExpandableNavbarItem item={item} className={className} />;
+      return (
+        <ExpandableNavbarItem
+          item={item}
+          className={className}
+          isExtra={isExtra}
+        />
+      );
     const { iconName, text, onClick } = item;
     return (
       <a
@@ -85,7 +100,14 @@ export const NavbarItem = forwardRef(
             color="primary"
           />
         )}
-        <Text text={text} size={size} bold={item.active} />
+        <Text
+          className={cx(styles.navbarItemText, {
+            [styles.navbarItemTextExtra]: isExtra,
+          })}
+          text={text}
+          size={size}
+          bold={item.active}
+        />
       </a>
     );
   }

@@ -16,7 +16,7 @@ export const ShowMore = () => (
 
 export const List = ({ title, children }: ListProps) => {
   return (
-    <Menu title={title} className={styles.list}>
+    <Menu title={title} titleProps={{ bold: true }} className={styles.list}>
       {children}
       <ShowMore />
     </Menu>

@@ -39,3 +39,10 @@
 .menuItem:first-of-type {
   border-top: 1px solid --gray;
 }
+
+@media (max-width: 1300px) {
+  .profileText,
+  .profileIcon {
+    display: none;
+  }
+}

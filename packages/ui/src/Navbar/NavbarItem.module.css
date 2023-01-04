@@ -43,3 +43,12 @@
 .nestedNavbarItemIconExpanded {
   transform: rotate(-180deg);
 }
+
+@media (max-width: 1300px) {
+  .navbarItem {
+    padding: 7px 12px;
+  }
+  .navbarItemText:not(.navbarItemTextExtra) {
+    display: none;
+  }
+}

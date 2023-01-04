@@ -19,6 +19,6 @@ export const RecommendedFollow = ({
       <Text text={name} size="sm" />
       <Text text={handle} size="xs" color="secondary" />
     </div>
-    <Button onClick={() => null} text="Follow" style="secondary" size="sm" />
+    <Button text="Follow" style="tertiary" size="sm" />
   </MenuItem>
 );

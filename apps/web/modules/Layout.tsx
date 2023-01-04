@@ -7,8 +7,10 @@ export type LayoutProps = {
 };
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className={styles.layout}>
-    <Header />
-    <main className={styles.main}>{children}</main>
+  <div className={styles.container}>
+    <div className={styles.layout}>
+      <Header />
+      <main className={styles.main}>{children}</main>
+    </div>
   </div>
 );

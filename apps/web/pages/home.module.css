@@ -11,7 +11,7 @@
 .feed {
   display: flex;
   flex-direction: column;
-  max-width: 535px;
+  max-width: 600px;
   border-left: 1px solid --gray;
   border-right: 1px solid --gray;
 }
@@ -32,8 +32,21 @@
 }
 
 .sidebar {
+  min-width: 350px;
+  padding-right: 10px;
+}
+
+.fixedSidebar {
+  top: 10px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-width: 350px;
+  min-width: inherit;
+}
+
+@media (max-width: 1025px) {
+  .sidebar {
+    display: none;
+  }
 }

@@ -19,7 +19,7 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("media clicked")}
+          style="secondary"
         />
         <IconButton
           iconProps={{
@@ -27,7 +27,7 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("gif clicked")}
+          style="secondary"
         />
         <IconButton
           iconProps={{
@@ -35,7 +35,7 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("poll clicked")}
+          style="secondary"
         />
         <IconButton
           iconProps={{
@@ -43,7 +43,7 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("emoji clicked")}
+          style="secondary"
         />
         <IconButton
           iconProps={{
@@ -51,7 +51,7 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("schedule clicked")}
+          style="secondary"
         />
         <IconButton
           iconProps={{
@@ -59,12 +59,11 @@ export const PostActions = () => {
             size: "sm",
             color: "tertiary",
           }}
-          onClick={() => alert("location clicked")}
+          style="secondary"
           disabled={true}
         />
       </div>
-      {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-      <Button text="Tweet" size="sm" onClick={() => {}} disabled={true} />
+      <Button text="Tweet" size="sm" disabled={true} />
     </div>
   );
 };

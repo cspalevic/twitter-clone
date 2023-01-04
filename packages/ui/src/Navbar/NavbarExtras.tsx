@@ -29,7 +29,7 @@ export const NavbarExtras = ({ items }: Pick<NavbarProps, "items">) => {
         >
           <div className={styles.navbarExtrasItemsContainer}>
             {items.map((item, index) => (
-              <NavbarItem item={item} key={index} />
+              <NavbarItem item={item} key={index} isExtra />
             ))}
           </div>
         </Popup>

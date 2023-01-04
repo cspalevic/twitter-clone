@@ -18,12 +18,22 @@ export const Header = () => {
                 iconName: "Logo",
                 className: styles.logo,
               }}
+              style="secondary"
             />
             <Navbar
               items={getNavbarItems(pathname, push as (path?: string) => void)}
               limit={NAVBAR_ITEM_LIMIT}
             />
-            <Button text="Tweet" onClick={() => alert("You clicked tweet")} />
+            <IconButton
+              className={styles.regularScreenButton}
+              iconProps={{ iconName: "Tweet" }}
+              onClick={() => null}
+            />
+            <Button
+              className={styles.wideScreenButton}
+              text="Tweet"
+              onClick={() => null}
+            />
           </div>
           <ProfileButton
             avatarImage={

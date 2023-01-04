@@ -1,19 +1,19 @@
 import cx from "classnames";
 import { MouseEventHandler, ReactNode } from "react";
-import { Text, TextSize } from "ui";
+import { Text, TextProps } from "ui";
 import styles from "./Menu.module.css";
 
 export type MenuItemProps = {
-  onClick: MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   children: ReactNode;
   className?: string;
 };
 
 export type MenuProps = {
   title?: string;
+  titleProps?: Omit<TextProps, "text">;
   subTitle?: ReactNode;
   children: ReactNode;
-  titleSize?: TextSize;
   className?: string;
 };
 
@@ -28,11 +28,11 @@ export const Menu = ({
   subTitle,
   children,
   className,
-  titleSize = "md",
+  titleProps,
 }: MenuProps) => (
   <div className={cx([styles.menu, className])}>
     <div className={styles.menuTitle}>
-      <Text text={title} size={titleSize} />
+      <Text text={title} size="md" {...titleProps} />
       {subTitle}
     </div>
     <div className={styles.menuList}>{children}</div>

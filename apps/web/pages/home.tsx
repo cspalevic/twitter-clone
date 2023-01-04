@@ -18,36 +18,56 @@ type AggregateCount = {
   count: number;
 };
 
-type TweetFeed = {
+type Tweet = {
   id: string;
   content: string;
   profile: Profile;
-  comments: AggregateCount;
-  retweets: AggregateCount[];
-  likes: AggregateCount[];
+  commentCount: AggregateCount;
+  retweetCount: AggregateCount[];
+  likeCount: AggregateCount[];
 };
 
 type Props = {
-  tweets: TweetFeed[] | null;
+  timeline: Tweet[] | null;
 };
 
 export const getStaticProps = async (): Promise<{
-  props: { tweets: TweetFeed[] | null };
+  props: { timeline: Tweet[] | null };
 }> => {
-  const { data: tweets } = await supabase
+  const { data: timeline } = await supabase
     .from("tweets")
-    .select<string, TweetFeed>(
-      `id, content, profile:profileId ( id, createdAt, bio, name, handle, imageUrl ), parentId ( count ), retweets ( count ), likes ( count )`
+    .select<string, Tweet>(
+      `
+      id, 
+      content, 
+      profile:profileId ( 
+        id, 
+        createdAt, 
+        bio, 
+        name, 
+        handle, 
+        imageUrl 
+      ),
+      commentCount:parentId (
+        count
+      ),
+      retweetCount:retweets (
+        count
+      ),
+      likeCount:likes (
+        count
+      )
+    `
     )
     .limit(100);
   return {
     props: {
-      tweets,
+      timeline,
     },
   };
 };
 
-const Home = ({ tweets }: Props) => {
+const Home = ({ timeline }: Props) => {
   return (
     <div className={styles.main}>
       <div className={styles.feed}>
@@ -57,6 +77,7 @@ const Home = ({ tweets }: Props) => {
             <IconButton
               onClick={() => alert("Top Tweets")}
               iconProps={{ iconName: "TopTweet", size: "sm" }}
+              style="secondary"
             />
           </div>
         </StickyHeader>
@@ -70,69 +91,73 @@ const Home = ({ tweets }: Props) => {
             />
           }
         />
-        {tweets?.map(({ id, content, profile, comments, retweets, likes }) => (
-          <Post
-            key={id}
-            avatarImage={
-              <Image
-                alt={profile?.name}
-                src={profile?.imageUrl}
-                width={50}
-                height={50}
-              />
-            }
-            profile={profile}
-            text={content}
-            comments={comments?.count ?? 0}
-            retweets={retweets.length ? retweets[0].count : 0}
-            likes={likes.length ? likes[0].count : 0}
-          />
-        ))}
-      </div>
-      <div className={styles.sidebar}>
-        <Searchbar
-          onSearch={() =>
-            new Promise((resolve) => {
-              setTimeout(() => {
-                resolve([1, 2, 3]);
-              }, 1500);
-            })
-          }
-        />
-        <List title="What's happening">
-          {[
-            { name: "Steelers at Ravens" },
-            { name: "VSCode" },
-            { name: "Jeremy Renner" },
-            { name: "Outback Bowl" },
-            { name: "Brock Purdy" },
-          ].map(({ name }, index) => (
-            <TrendingItem name={name} key={index} />
-          ))}
-        </List>
-        <List title="Who to follow">
-          {[
-            {
-              avatarImage: (
+        {timeline?.map(
+          ({ id, content, profile, commentCount, retweetCount, likeCount }) => (
+            <Post
+              key={id}
+              avatarImage={
                 <Image
-                  alt="Person Avatar"
-                  src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/170.jpg"
+                  alt={profile?.name}
+                  src={profile?.imageUrl}
                   width={50}
                   height={50}
                 />
-              ),
-              name: "Charllie Spalevic",
-              handle: "@cspalevic",
-            },
-          ].map(({ avatarImage, name, handle }, index) => (
-            <RecommendedFollow
-              avatarImage={avatarImage}
-              name={name}
-              handle={handle}
-              key={index}
+              }
+              profile={profile}
+              text={content}
+              comments={commentCount.count}
+              retweets={retweetCount.length ? retweetCount[0].count : 0}
+              likes={likeCount.length ? likeCount[0].count : 0}
             />
-          ))}
-        </List>
+          )
+        )}
+      </div>
+      <div className={styles.sidebar}>
+        <div className={styles.fixedSidebar}>
+          <Searchbar
+            onSearch={() =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve([1, 2, 3]);
+                }, 1500);
+              })
+            }
+          />
+          <List title="What's happening">
+            {[
+              { name: "Steelers at Ravens" },
+              { name: "VSCode" },
+              { name: "Jeremy Renner" },
+              { name: "Outback Bowl" },
+              { name: "Brock Purdy" },
+            ].map(({ name }, index) => (
+              <TrendingItem name={name} key={index} />
+            ))}
+          </List>
+          <List title="Who to follow">
+            {[
+              {
+                avatarImage: (
+                  <Image
+                    alt="Person Avatar"
+                    src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/170.jpg"
+                    width={50}
+                    height={50}
+                  />
+                ),
+                name: "Charllie Spalevic",
+                handle: "@cspalevic",
+              },
+            ].map(({ avatarImage, name, handle }, index) => (
+              <RecommendedFollow
+                avatarImage={avatarImage}
+                name={name}
+                handle={handle}
+                key={index}
+              />
+            ))}
+          </List>
+        </div>
       </div>
     </div>
   );

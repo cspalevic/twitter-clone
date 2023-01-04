@@ -30,7 +30,7 @@ export const Post = ({
           <PostAuthor profile={profile} />
           <IconButton
             iconProps={{ iconName: "More", color: "secondary", size: "sm" }}
-            onClick={console.log}
+            style="secondary"
           />
         </div>
         <Text text={text} size="sm" />

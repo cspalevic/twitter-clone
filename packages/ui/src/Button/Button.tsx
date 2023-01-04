@@ -5,11 +5,11 @@ import styles from "./Button.module.css";
 
 export type ButtonProps = {
   text: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
   disabled?: boolean;
   size?: "sm" | "md";
-  style?: "primary" | "secondary";
+  style?: "primary" | "secondary" | "tertiary";
 };
 
 export type IconButtonProps = Omit<ButtonProps, "text"> & {
@@ -20,10 +20,11 @@ export const IconButton = ({
   className,
   disabled,
   onClick,
+  style = "primary",
   iconProps: { size = "md", ...rest },
 }: IconButtonProps) => (
   <button
-    className={cx(styles.iconButton, className)}
+    className={cx(styles.iconButton, styles[`buttonStyle-${style}`], className)}
     disabled={disabled}
     onClick={onClick}
   >

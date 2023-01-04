@@ -21,7 +21,7 @@ const PostActionItem = ({
   >
     <IconButton
       iconProps={{ iconName, color: "secondary", size: "xs" }}
-      onClick={console.log}
+      style="secondary"
     />
     {amount !== 0 && (
       <Text text={amount.toString()} size="xs" color="secondary" />

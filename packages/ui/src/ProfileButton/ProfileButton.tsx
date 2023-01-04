@@ -38,10 +38,10 @@ export const ProfileButton = ({
           showArrow
         >
           <Menu className={styles.menu}>
-            <MenuItem className={styles.menuItem} onClick={console.log}>
+            <MenuItem className={styles.menuItem}>
               <Text size="sm" text="Add an existing account" />
             </MenuItem>
-            <MenuItem className={styles.menuItem} onClick={console.log}>
+            <MenuItem className={styles.menuItem}>
               <Text size="sm" text="Log out @cspalevic" />
             </MenuItem>
           </Menu>
